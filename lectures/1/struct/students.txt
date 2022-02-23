@@ -1,0 +1,10 @@
+3
+Ivan Ivanov
+1
+5.75
+Stefani Stefanova
+1
+6
+Petar Petrov
+2
+5.25
