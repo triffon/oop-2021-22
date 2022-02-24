@@ -6,7 +6,7 @@
 
 Първото нещо, с което ще се сблъскате в курса по **Геометрия**, е именно **векторът**. Един от начините за представяне на вектор е чрез координати. Понеже всичко е *по-забавно* :clown_face: в 3-мерното пространсво, векторът в нашата задача ще се характеризира с **3 координати** - *x, y, z*. За целта създайте структура `Vector3D`, съдържаща в себе си нужната информация за един тримерен вектор.
 
-Имплментирайте следните функции, свързани с вектори:
+Имплементирайте следните функции, свързани с вектори:
 
 ```c++
 /**
@@ -98,9 +98,9 @@ double getDistance(const Point2D& first, const Point2D& second);
 /**
  * @brief Function to initialize a new Definition instance from the console
  * 
- * @return the new Definition instance
+ * @return a new dynamically allocated Definition instance
  */
-Definition createDefinition();
+Definition* createDefinition();
 ```
 
 Помислете за подходящо реализиране на функцията така, че потребителят да разбира какво се очаква от него да направи.
@@ -118,7 +118,7 @@ Definition createDefinition();
  * @param exam the exam to which we're adding questions
  * @param definition the definition to be added
  */
-void addDefinition(MiniExam& exam, const Definition& definition);
+void addDefinition(MiniExam& exam, const Definition* definition);
 ```
 
 Помислете как ще следите колко определения имате в момента и дали не са възможни някакви проблеми при добавяне - например добавяне на определение, което е вече добавено?
