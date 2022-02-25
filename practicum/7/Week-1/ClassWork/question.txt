@@ -1,0 +1,14 @@
+Какъв е типа?
+
+    int* - pointer to int
+    int const * - pointer to const int
+    int * const - const pointer to int
+    int const * const - const pointer to const int
+
+If you want to go really crazy you can do things like this:
+
+    int ** - pointer to pointer to int
+    int ** const - const pointer to pointer to int
+    int * const * - a pointer to a const pointer to int
+    int const ** - pointer to pointer to a const int
+    int * const * const - const pointer to a const pointer to an int
