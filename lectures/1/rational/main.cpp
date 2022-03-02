@@ -1,65 +1,16 @@
 #include <iostream>
 #include <cmath>
-#include <numeric>
+#include "rational.hpp"
 using namespace std;
 
 struct Rational;
 
-struct Rational {
-    long numer, denom;
+int f(int);
 
-    Rational() {
-        numer = 0;
-        denom = 1;
-    }
+int f(int x) { return x * x; }
 
-    Rational(long _numer, long _denom) {
-        numer = _numer;
-        denom = _denom;
-        normalize();
-    }
-
-    long getNumerator()   const { return numer; }
-    long getDenominator() const { return denom; }
-
-    void print() {
-        cout << numer << '/' << denom;
-    }
-
-    void printnl() {
-        print();
-        cout << endl;
-    }
-
-    double toDouble() {
-        return (double)numer / denom;
-    }
-
-    void read() {
-        cin >> numer;
-        // прочитане на наклонена черта
-        // char c;
-        // cin >> c;
-        cin.ignore();
-        cin >> denom;
-    }
-
-    void normalize() {
-        unsigned g = gcd(abs(numer), abs(denom));
-        numer /= g;
-        denom /= g;
-    }
-};
-
-Rational multiply(Rational const& p, Rational const& q) {
-    return Rational(p.getNumerator()   * q.getNumerator(),
-                    p.getDenominator() * q.getDenominator());
-}
-
-Rational add(Rational const& p, Rational const& q) {
-    return Rational(p.getNumerator()   * q.getDenominator() + p.getDenominator() * q.getNumerator(),
-                    p.getDenominator() * q.getDenominator());
-}
+extern int r;
+int r = 2;
 
 unsigned fact(unsigned n) {
     if (n == 0)
@@ -76,19 +27,13 @@ double power(double x, int n) {
     return 1 / power(x, -n);
 }
 
+// ниво 3: приложна програма
 Rational ratexp(unsigned k, unsigned n) {
     Rational result;
     for(int i = 0; i <= n; i++)
         result = add(result, Rational(power(k, i), fact(i)));
     return result;
 }
-
-int f(int);
-
-int f(int x) { return x * x; }
-
-extern int r;
-int r = 2;
 
 void testRational() {
     Rational r;
@@ -117,8 +62,8 @@ void testRational() {
 
     cout.precision(15);
     cout << exp(1) << endl;
-    const unsigned N = 13;
-    const unsigned K = 0;
+    const unsigned N = 11;
+    const unsigned K = 1;
     ratexp(K, N).printnl();
     cout << ratexp(K, N).toDouble() << endl;
 }
