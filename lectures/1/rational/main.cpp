@@ -1,23 +1,9 @@
 #include <iostream>
 #include <cmath>
+#include <numeric>
 using namespace std;
 
 struct Rational;
-
-unsigned gcd(unsigned a, unsigned b) {
-    if (a == 0 && b == 0) {
-        cerr << "gcd: Некоректни стойности на a и b!" << endl;
-        return 0;
-    }
-    if (a == 0)
-        return b;
-    if (b == 0 || a == b)
-        return a;
-    if (a > b)
-        return gcd(a - b, b);
-    // b > a
-    return gcd(a, b - a);
-}
 
 struct Rational {
     long numer, denom;
@@ -131,9 +117,10 @@ void testRational() {
 
     cout.precision(15);
     cout << exp(1) << endl;
-    const unsigned N = 10;
-    ratexp(1, N).printnl();
-    cout << ratexp(1, N).toDouble() << endl;
+    const unsigned N = 13;
+    const unsigned K = 0;
+    ratexp(K, N).printnl();
+    cout << ratexp(K, N).toDouble() << endl;
 }
 
 int main(int, char**) {
