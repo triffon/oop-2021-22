@@ -2,24 +2,24 @@
 
 class Player {
 private:
-	std::string name;
 	int health;
 	int xp;
+	bool hasUltimate;
 public:
 	Player();
-	Player(std::string nameVal);
-	Player(std::string nameVal, int healthVal, int xpVal);
+	Player(int healthVal);
+	Player(int healthVal, int xpVal, bool hasUltimateVal);
 };
 
-Player::Player(std::string nameVal, int healthVal, int xpVal) : name{nameVal}, health{ healthVal }, xp{ xpVal } {
+Player::Player(int healthVal, int xpVal, bool hasUltimateVal) : health{ healthVal }, xp{ xpVal }, hasUltimate{hasUltimateVal} {
 	//...
 }
 
-Player::Player() : Player{ "None",0,0 } {
+Player::Player() : Player{ 0,0,0 } {
 	//...
 }
 
-Player::Player(std::string nameVal) : Player{ nameVal, 0, 0 } {
+Player::Player(int healthVal) : Player{ healthVal, 0, 0 } {
 	//...
 }
 

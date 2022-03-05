@@ -1,28 +1,32 @@
 #include <iostream>
+#include <cstring>
 
 class Player {
 private:
-    std::string name;
+    char* name;
     int health;
     int xp;
 public:
     Player();
-    Player(std::string nameVal);
-    Player(std::string nameVald, int healthVal, int xpVal);
+    Player(const char* nameVal); // we can unite the default constructor and this one using default param "\0";
+    Player(const char* nameVal, int healthVal, int xpVal);
 };
 
 Player::Player() {
-    name = "None";
+    name = new char[1];
+    strcpy(name, "\0");
 }
 
-Player::Player(std::string nameVal) {
-    name = nameVal;
+Player::Player(const char* nameVal) {
+    name = new char[strlen(nameVal) + 1]; //this can be allocated in the initialization list.
+    strncpy(name, nameVal, strlen(nameVal) + 1);
     health = 0;
     xp = 0;
 }
 
-Player::Player(std::string nameVal, int healthVal, int xpVal) {
-    name = nameVal;
+Player::Player(const char* nameVal, int healthVal, int xpVal) {
+    name = new char[strlen(nameVal) + 1]; //this can be allocated in the initialization list.
+    strncpy(name, nameVal, strlen(nameVal) + 1);
     health = healthVal;
     xp = xpVal;
 }

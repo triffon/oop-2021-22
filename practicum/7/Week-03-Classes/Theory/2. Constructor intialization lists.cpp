@@ -1,31 +1,33 @@
 #include <iostream>
 
+// If we want to have cstring, we would need to allocate the memory in the constructor and then strcpy any info in it using strcpy
+//IMPORTANT -> initalization is done in the order which we have in the class no matter what is the order in the initialization list
+
+
 class Player {
 private:
-    std::string name;
     int health;
     int xp;
 public:
     Player();
-    Player(std::string nameVal);
-    Player(std::string nameVal, int healthVal, int xpVal);
+    Player(int healthVal);
+    Player(int healthVal, int xpVal);
 };
 
 /*
-Player::Player() {          //Previous way(old)
-    name = "None";          
+Player::Player() {          //Previous way(old)         
     health = 0;             // ASSIGNMENT NOT INITIALIZATION
     xp = 0;
 }
 */
 
-Player::Player() : name{ "None" }, health{ 0 }, xp{ 0 } {   
+Player::Player() : health{ 0 }, xp{ 0 } {   
     //...
 }
-Player::Player(std::string nameVal) : name { nameVal }, health { 0 }, xp { 0 } {
+Player::Player(int healthVal) : health { healthVal }, xp { 0 } {
     //...
 }
-Player::Player(std::string nameVal, int healthVal, int xpVal) : name{ nameVal }, health{ healthVal }, xp{ xpVal } {
+Player::Player(int healthVal, int xpVal) : health{ healthVal }, xp{ xpVal } {
     //...
 }
 

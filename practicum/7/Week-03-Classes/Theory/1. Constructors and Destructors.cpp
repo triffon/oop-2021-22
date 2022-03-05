@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstring>
 
 int main()
 {
@@ -14,14 +15,13 @@ int main()
 	/*
 	class Player {
 	private:
-		std::string name;
 		int health;
 		int xp;
 	public:
 		//overloaded constructors
 		Player();
-		Player(std::string name);
-		Player(std::string name, int health, int xp);
+		Player(int health);
+		Player(int health, int xp);
 	};
 	*/
 
@@ -36,14 +36,14 @@ int main()
 	/*
 	class Player {
 	private:
-		std::string name;
+		char* name;
 		int health;
 		int xp;
 	public:
 		//overloaded constructors
 		Player();
-		Player(std::string name);
-		Player(std::string name, int health, int xp);
+		Player(char* name);
+		Player(char* name, int health, int xp);
 
 		//destructor (CANT BE OVERLOADED)
 		~Player();
@@ -52,26 +52,27 @@ int main()
 
 	class Player {
 	private:
-		std::string name;
+		char* name;
 		int health;
 		int xp;
 	public:
-		void setName(std::string nameVal) {
-			name = nameVal;
+		void setName(const char* nameVal) {
+			strcpy(name, nameVal);
 		}
 		//constructors
 		Player() {
 			std::cout << "No args constructor called";
 		}
-		Player(std::string name) {
+		Player(const char* name) {
 			std::cout << "String argumented constructor called";
 		}
-		Player(std::string name, int health, int xp) {
+		Player(const char* name, int health, int xp) {
 			std::cout << "Three argumented constructor called";
 		}
 		// destructor (CANT BE OVERLOADED)
 		~Player() {
 			std::cout << "Destructor called for " << name;
+			delete[] name;
 		}
 	};
 

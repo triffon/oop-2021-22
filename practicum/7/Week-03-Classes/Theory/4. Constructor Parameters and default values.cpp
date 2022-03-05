@@ -1,28 +1,36 @@
 #include <iostream>
+#include <cstring>
+
+//IMPORTANT -> initalization is done in the order which we have in the class no matter what is the order in the initialization list
+
 
 /*class Player {
 private:
-	std::string name;
+	char* name;
 	int health;
 	int xp;
 public:
-	Player(std::string nameVal = "None", int healthVal = 0, int xpVal = 0);  // Constructor with default values
+	Player(const char* = "\0", int healthVal = 0, int xpVal = 0);  // Constructor with default values
+
+    ~Player(){
+        delete[] name;
+    }
 };*/
 
 class Player {
 private:
-	std::string name;
+	char* name;
 	int health;
 	int xp;
 public:
-	Player(std::string nameVal = "None", int healthVal = 0, int xpVal = 0);
+	Player(const char* nameVal = "\0", int healthVal = 0, int xpVal = 0);
 	//If we write another contsructor like this:
 	//Player(){} we will get a compiler error because the compiler wont be aware which contructor to take
 };
 
 
-Player::Player(std::string nameVal, int healthVal, int xpVal) : name{ nameVal }, health{ healthVal }, xp{ xpVal }{
-
+Player::Player(const char* nameVal, int healthVal, int xpVal) : name(new char[strlen(nameVal) + 1]), health{ healthVal }, xp{ xpVal }{
+    strcpy(name, nameVal);
 }
 
 
@@ -33,7 +41,7 @@ int main()
 	Player hero{ "Hero",100 }; //Hero, 100, 0
 	Player villain{ "Villain", 100, 55 }; //Villain, 100, 55
 
-    
+
 
 	return 0;
 }
