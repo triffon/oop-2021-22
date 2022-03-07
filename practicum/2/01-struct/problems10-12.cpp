@@ -4,7 +4,8 @@ const int MAX_SUBJ_LEN = 16;
 const int MAX_NAME_LEN = 64;
 const int NUM_OF_GRADES = 3;
 
-struct Grade {
+struct Grade
+{
     char subject[MAX_SUBJ_LEN];
     float grade;
 };
