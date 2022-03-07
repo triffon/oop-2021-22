@@ -56,7 +56,8 @@ void print(const Student& st)
         << "Name: " << st.name << ", FN: " << st.facultyNum
         << std::endl << "Grades: " << std::endl;
 
-    for (int i = 0; i < NUM_OF_GRADES; i++) {
+    for (int i = 0; i < NUM_OF_GRADES; i++) 
+    {
         print(st.grades[i]);
         std::cout << std::endl;
     }
@@ -66,12 +67,15 @@ void print(const Student& st)
 
 void printSubjGrade(const Student* students, int size, float gradeCheck)
 {
-    for (int i = 0; i < size; i++) {
+    for (int i = 0; i < size; i++)
+    {
         std::cout << students[i].name << " -> ";
 
         bool gradePrinted = false;
-        for (int j = 0; j < NUM_OF_GRADES; j++) {
-            if (students[i].grades[j].grade > gradeCheck) {
+        for (int j = 0; j < NUM_OF_GRADES; j++)
+        {
+            if (students[i].grades[j].grade > gradeCheck)
+            {
                 std::cout << (gradePrinted ? ", ": "") << students[i].grades[j].subject << ' ';
                 gradePrinted = true;
             }
@@ -87,7 +91,8 @@ void printSubjGrade(const Student* students, int size, float gradeCheck)
 
 void sort(Student* students, int size)
 {
-    for (int i = 0; i < size - 1; i++) {
+    for (int i = 0; i < size - 1; i++)
+    {
         int currMaxInd = i;
 
         for (int j = i; j < size; j++)
@@ -106,12 +111,14 @@ int main()
     std::cin >> numOfStudents;
 
     Student* arr = new (std::nothrow) Student[numOfStudents];
-    if (!arr) {
+    if (!arr)
+    {
         std::cerr << "Not enough memory!" << std::endl;
         return -1;
     }
 
-    for (int i = 0; i < numOfStudents; i++) {
+    for (int i = 0; i < numOfStudents; i++)
+    {
         read(arr[i]);
         std::cout << std::endl;
     }
@@ -119,7 +126,8 @@ int main()
     sort(arr, numOfStudents);
 
     std::cout << std::endl << "Students sorted by highest average grades: " << std::endl;
-    for (int i = 0; i < numOfStudents; i++) {
+    for (int i = 0; i < numOfStudents; i++)
+    {
         print(arr[i]);
         std::cout << std::endl;
     }
