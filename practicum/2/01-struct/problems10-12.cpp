@@ -9,7 +9,8 @@ struct Grade {
     float grade;
 };
 
-struct Student {
+struct Student
+{
     char name[MAX_NAME_LEN];
     unsigned facultyNum;
     Grade grades[NUM_OF_GRADES];
