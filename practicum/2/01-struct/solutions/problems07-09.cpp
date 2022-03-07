@@ -2,7 +2,8 @@
 
 const int MAX_NAME_LEN = 64;
 
-struct Student {
+struct Student 
+{
     char name[MAX_NAME_LEN];
     unsigned facultyNum;
 };
@@ -29,7 +30,8 @@ int main()
     std::cin >> numOfStudents;
 
     Student* arr = new (std::nothrow) Student[numOfStudents];
-    if (!arr) {
+    if (!arr)
+    {
         std::cerr << "Not enough memory!\n";
         return -1;
     }
@@ -39,7 +41,8 @@ int main()
 
     std::cout << '\n';
 
-    for (int i = 0; i < numOfStudents; i++) {
+    for (int i = 0; i < numOfStudents; i++)
+    {
         print(arr[i]);
         std::cout << '\n';
     }
