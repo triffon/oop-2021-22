@@ -1,22 +1,16 @@
-# Object-Oriented-Programming
+# Assignment
 
-## 0. Reading & Learning Materials
-- [Introduction to Object Oriented Programming](https://medium.com/practicum-by-yandex/introduction-to-object-oriented-programming-34cc3b7ab582)
-- [Clean Code](https://enos.itcollege.ee/~jpoial/oop/naited/Clean%20Code.pdf)
-- [Z-Lib Book Search](https://bg1lib.org/)
-- [O-Reilly Online Learning](https://www.oreilly.com/online-learning/)
-- [GitHub 101 Tutorial](https://guides.github.com/activities/hello-world/)
-- [Git Book](https://git-scm.com/book/en/v2)
-- [Advanced BASH Scripting Guide](https://tldp.org/LDP/abs/html/)
-- [LearnGitBranching](https://learngitbranching.js.org/)
+## Prerequisites
+- [Install C++ Compiler](https://code.visualstudio.com/docs/languages/cpp#_install-a-compiler)
+- [Install VSCode](https://code.visualstudio.com/download)
+- [Install VSCode C++ Extension](https://code.visualstudio.com/docs/languages/cpp#_install-the-extension)
 
-## 1. Development Environment
-- [Download VSCode](https://code.visualstudio.com/download)
-- [C++ Programming for VSCode](https://code.visualstudio.com/docs/languages/cpp)
-- [Download Git](https://git-scm.com/downloads)
-- [Download VS 2019 Community](https://visualstudio.microsoft.com/downloads/)
-- [Project creation procedure](https://docs.google.com/document/d/1mqQt0GFqRQuCNbOpvk0LLn-hPOd6hvl_fwJMDVPerJ0/edit?usp=sharing)
+## Recap from Lectures
+- [Data Structures in C++](https://www.cplusplus.com/doc/tutorial/structures/)
+- [Data Abstraction in C++](https://www.tutorialspoint.com/cplusplus/cpp_data_abstraction.htm)
 
-## 2. MISC
-- [FMI WikiDot](http://fmi.wikidot.com/)
-- [More Readings](https://medium.com/javarevisited/10-best-programming-and-coding-books-for-beginners-and-experienced-software-developers-8e47eed3b2e2)
+## Problems
+- Write a C++ struct that represents a fraction. Provide capabilities for addition, substraction, division and multiplication (see: [example](https://github.com/triffon/oop-2021-22/blob/master/exercises/7/Week-1/Examples/FractionExample.cpp)).
+
+## Solutions
+Upload solutions in your GitHub folder (see: [how-to](https://www.atlassian.com/git/tutorials/saving-changes/git-commit)) (only .CPP files, no executable files)
