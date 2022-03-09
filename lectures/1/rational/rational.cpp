@@ -73,3 +73,7 @@ bool lessThan(Rational const& p, Rational const& q) {
     // if (X) return true; else return false;   <-> return X;
     // return X ? true : false;      <-> return X;
 }
+
+inline bool Rational::equals(Rational const& p) const {
+    return numer == p.numer && denom == p.denom;
+}
