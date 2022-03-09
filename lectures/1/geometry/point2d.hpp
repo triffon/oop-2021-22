@@ -32,6 +32,7 @@ public:
     // отражения относно осите
     void reflectHorizontal() { setY(-getY()); }
     void reflectVertical()   { setX(-getX()); }
+    void reflectOrigin()     { reflectHorizontal(); reflectVertical(); }
 
     // транслация
     void translate(Point2D const& by);
