@@ -1,5 +1,8 @@
 struct Rational {
     // ниво 0: представяне
+    // numer е цяло число
+    // denom е положително число
+    // gcd(numer,denom) = 1
     long numer, denom;
 
     // ниво 1: конструктори

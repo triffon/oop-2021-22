@@ -34,12 +34,23 @@ void Rational::read() {
     // cin >> c;
     std::cin.ignore();
     std::cin >> denom;
+    normalize();
 }
 
 void Rational::normalize() {
+    if (denom == 0) {
+        // !!!     throw "Подаден е знаменател 0!";
+        std::cerr << "Подаден знаменател 0, игнорира се" << std::endl;
+        numer = 0;
+        denom = 1; 
+    }
     unsigned g = std::gcd(abs(numer), abs(denom));
     numer /= g;
     denom /= g;
+    if (denom < 0) {
+        numer = -numer;
+        denom = -denom;
+    }
 }
 
 Rational multiply(Rational const& p, Rational const& q) {
@@ -50,4 +61,12 @@ Rational multiply(Rational const& p, Rational const& q) {
 Rational add(Rational const& p, Rational const& q) {
     return Rational(p.getNumerator()   * q.getDenominator() + p.getDenominator() * q.getNumerator(),
                     p.getDenominator() * q.getDenominator());
+}
+
+bool lessThan(Rational const& p, Rational const& q) {
+    // !!! return p.toDouble() < q.toDouble();
+    // !!! return p.numer * q.denom < p.denom * q.numer;
+    return p.getNumerator() * q.getDenominator() < q.getNumerator() * p.getDenominator();
+    // if (X) return true; else return false;   <-> return X;
+    // return X ? true : false;      <-> return X;
 }
