@@ -18,8 +18,9 @@ public:
     // селектор за разстояние до друга точка
     double distanceTo(Point2D const&) const;
 
-    // селектор за извеждане
+    // селектори за извеждане
     void print() const;
+    void printnl() const;
 
     // мутатори за координати
     void setX(double _x) { x = _x; }
