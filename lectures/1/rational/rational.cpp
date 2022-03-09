@@ -1,6 +1,7 @@
 #include <iostream>
 #include <numeric>
 #include "rational.hpp"
+#include "rational.hpp"
 // using namespace std;
 
 Rational::Rational() {

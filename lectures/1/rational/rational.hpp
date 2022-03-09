@@ -1,3 +1,8 @@
+//#pragma once
+
+#ifndef __RATIONAL_HPP
+#define __RATIONAL_HPP
+
 class Rational {
 private:
     // ниво 0: представяне
@@ -35,3 +40,5 @@ public:
 // ниво 2: аритметични операции за умножение и събиране
 Rational multiply(Rational const& p, Rational const& q);
 Rational add(Rational const& p, Rational const& q);
+
+#endif
