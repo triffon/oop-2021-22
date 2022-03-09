@@ -35,6 +35,8 @@ void Rational::read() {
     // cin >> c;
     std::cin.ignore();
     std::cin >> denom;
+    // Rational p;
+    // !!! this = &p;
     normalize();
 }
 
@@ -45,7 +47,7 @@ void Rational::normalize() {
         numer = 0;
         denom = 1; 
     }
-    unsigned g = std::gcd(abs(numer), abs(denom));
+    unsigned g = std::gcd(std::abs(numer), std::abs(denom));
     numer /= g;
     denom /= g;
     if (denom < 0) {

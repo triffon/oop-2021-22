@@ -1,7 +1,7 @@
 #include <iostream>
 #include <cmath>
 #include "rational.hpp"
-using namespace std;
+// using namespace std;
 
 struct Rational;
 
@@ -38,34 +38,34 @@ Rational ratexp(unsigned k, unsigned n) {
 void testRational() {
     Rational r;
     r = Rational();
-    cout << r.getNumerator() << '/' << r.getDenominator() << endl;
+    std::cout << r.getNumerator() << '/' << r.getDenominator() << std::endl;
     r = Rational(2, 3);
     r.printnl();
     // Rational q(5, 6);
     Rational q = Rational(5, 6);
     q.printnl();
-    cout << q.toDouble() << endl;
+    std::cout << q.toDouble() << std::endl;
     q.read();
 
     q.printnl();
     r.print();
-    cout << " * ";
+    std::cout << " * ";
     q.print();
-    cout << " = ";
+    std::cout << " = ";
     multiply(r, q).printnl();
 
     r.print();
-    cout << " + ";
+    std::cout << " + ";
     q.print();
-    cout << " = ";
+    std::cout << " = ";
     add(r, q).printnl();
 
-    cout.precision(15);
-    cout << exp(1) << endl;
+    std::cout.precision(15);
+    std::cout << exp(1) << std::endl;
     const unsigned N = 11;
     const unsigned K = 1;
     ratexp(K, N).printnl();
-    cout << ratexp(K, N).toDouble() << endl;
+    std::cout << ratexp(K, N).toDouble() << std::endl;
 }
 
 int main(int, char**) {
