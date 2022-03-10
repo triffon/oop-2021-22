@@ -27,7 +27,7 @@ struct Definition
 
 struct MiniExam
 {
-    Definition* definitions[MAX_NUMBER_OF_DEFINITIONS];
+    const Definition* definitions[MAX_NUMBER_OF_DEFINITIONS];
     std::size_t size = 0;
 };
 
