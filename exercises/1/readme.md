@@ -1,4 +1,4 @@
-# oop_2020
+# oop_2022
 
 FMI Sofia - Computer Science
 Object-Oriented Programming with C++
