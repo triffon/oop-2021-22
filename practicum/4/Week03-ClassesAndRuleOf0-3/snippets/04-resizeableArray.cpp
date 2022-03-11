@@ -132,7 +132,8 @@ public:
             this->resize();
         }
 
-        this->books[this->size++] = toAdd;
+        this->books[this->size] = toAdd;
+        ++this->size;
     }
 
     bool removeBook(const char* name)

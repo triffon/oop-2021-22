@@ -13,6 +13,7 @@ struct PersonAsStruct
 // the default access modifier is 'private'
 class PersonAsClass
 {
+public:
     int age;
     char name[MAX_NAME_SIZE];
 };

@@ -10,23 +10,23 @@ private:
     double price;
     char* color;
 
-    // void copy(const Baloon& other)
-    // {
-    //     this->color = new (std::nothrow) char[strlen(other.color) + 1];
-    //     if (!this->color)
-    //     {
-    //         std::cout << "Memory problem!" << std::endl;
-    //         return;
-    //     }
-    //     strcpy(this->color, other.color);
+    void copy(const Baloon& other)
+    {
+        this->color = new (std::nothrow) char[strlen(other.color) + 1];
+        if (!this->color)
+        {
+            std::cout << "Memory problem!" << std::endl;
+            return;
+        }
+        strcpy(this->color, other.color);
 
-    //     this->price = other.price;
-    // }
+        this->price = other.price;
+    }
 
-    // void deallocate()
-    // {
-    //     delete[] this->color;
-    // }
+    void deallocate()
+    {
+        delete[] this->color;
+    }
 
 public:
     Baloon()
@@ -110,30 +110,28 @@ public:
 
     ~Baloon()
     {
-        delete[] this->color;
-
-        // this->deallocate();
+        this->deallocate();
     }
 
-    // Baloon(const Baloon& other) // copy constructor
-    // {
-    //     std::cout << "Inside copy constructor" << std::endl;
+    Baloon(const Baloon& other) // copy constructor
+    {
+        std::cout << "Inside copy constructor" << std::endl;
 
-    //     this->copy(other);
-    // }
+        this->copy(other);
+    }
 
-    // Baloon& operator = (const Baloon& other) // copy assignment operator
-    // {
-    //     std::cout << "Inside operator =" << std::endl;
+    Baloon& operator = (const Baloon& other) // copy assignment operator
+    {
+        std::cout << "Inside operator =" << std::endl;
 
-    //     if (this != &other)
-    //     {
-    //         this->deallocate();
-    //         this->copy(other);
-    //     }
+        if (this != &other)
+        {
+            this->deallocate();
+            this->copy(other);
+        }
 
-    //     return *this;
-    // }
+        return *this;
+    }
 };
 
 // RULE OF 3 - Copy constructor, Copy assignment operator and Destructor
@@ -151,21 +149,21 @@ int main ()
     std::cout << a << " " << copyA << std::endl;
 
 
-    // Baloon red(10, "red");
+    Baloon red(10, "red");
 
-    // Baloon copyAssignementRed;
-    // copyAssignementRed = red;
+    Baloon copyAssignementRed;
+    copyAssignementRed = red;
 
-    // red.setColor("more red");
+    red.setColor("more red");
 
-    // red.print();
-    // copyAssignementRed.print();
+    red.print();
+    copyAssignementRed.print();
 
-    // Baloon copyConstructorRed(red);
-    // copyConstructorRed.print();
+    Baloon copyConstructorRed(red);
+    copyConstructorRed.print();
 
-    // // Baloon mysteriousRed = red;
-    // // mysteriousRed.print();
+    Baloon mysteriousRed = red;
+    mysteriousRed.print();
 
     return 0;
 }
