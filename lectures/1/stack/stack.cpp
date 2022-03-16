@@ -12,7 +12,7 @@ bool Stack::empty() const {
 
 // включване на елемент
 void Stack::push(int x) {
-    stack[top++] = x;
+    stack[++top] = x;
 }
 
 // намиране на последния включен елемент
