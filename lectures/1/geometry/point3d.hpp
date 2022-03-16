@@ -12,6 +12,7 @@ public:
     // конструктори
     Point3D();
     Point3D(Point2D const& _p, double _z);
+    Point3D(double _x, double _y, double _z);
 
     // селектори
     Point2D getP() const { return p; }
@@ -41,11 +42,11 @@ public:
     void reflectHorizontal() { setY(-getY()); }
     void reflectVertical()   { setX(-getX()); }
     void reflectDepth()      { setZ(-getZ()); }
-    void reflect() {
+    void reflectOrigin() {
         reflectHorizontal();
         reflectVertical();
         reflectDepth();
     }
-;
+};
 
 #endif
