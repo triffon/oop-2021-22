@@ -2,12 +2,13 @@
 #define __STACK_HPP
 
 const int MAXSTACK = 100;
+const int EMPTY_STACK = -1;
 
 class Stack {
 private:
     // стекът
     int stack[MAXSTACK];
-    
+
     // индекс на послдния включен елемент
     int top;
 public:
