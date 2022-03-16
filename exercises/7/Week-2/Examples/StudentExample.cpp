@@ -2,7 +2,7 @@
     Problem: Write a C++ class that represents a student. A student has first,
              middle & last names (char*), a faculty number (unsigned int)
              and a faculty (enum). Create appropriate constructor, destructor
-            and methods to access the fields of a studentл
+            and methods to access the fields of a student.
 */
 
 #include <iostream>
