@@ -66,6 +66,13 @@ void testRational() {
     const unsigned K = 1;
     ratexp(K, N).printnl();
     std::cout << ratexp(K, N).toDouble() << std::endl;
+
+    // Rational s(5);
+    Rational s = 5;
+    // !!! Rational s(&r);
+    Rational r2 = r;
+    Rational r3(r);
+    Rational r4 = Rational(r);
 }
 
 int main(int, char**) {
