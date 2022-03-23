@@ -1,9 +1,11 @@
 #include <iostream>
 #include <cassert>
 //#include "stack.hpp"
-#include "rstack.hpp"
+//#include "rstack.hpp"
+#include "lstack.hpp"
 
-typedef ResizingStack Stack;
+//typedef ResizingStack Stack;
+typedef LinkedStack Stack;
 
 void convertBase() {
     unsigned n;
@@ -148,7 +150,7 @@ void autoTestParentheses() {
 }
 
 int main(int, char**) {
-    //convertBase();
+    convertBase();
     //testExpression();
-    autoTestParentheses();
+    //autoTestParentheses();
 }
