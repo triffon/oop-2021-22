@@ -4,11 +4,13 @@
 const int MAXNAME = 100;
 
 class Player {
-    char name[MAXNAME];
+    //char name[MAXNAME];
+    char* name;
     unsigned score;
 public:
 
     Player(const char* _name = "<анонимен>", unsigned _score = 0);
+    Player(Player const&);
 
     char const* getName() const { return name; }
     unsigned getScore() const { return score; }
