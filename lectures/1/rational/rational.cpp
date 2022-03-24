@@ -4,14 +4,8 @@
 #include "rational.hpp"
 // using namespace std;
 
-Rational::Rational() {
-    numer = 0;
-    denom = 1;
-}
-
-Rational::Rational(long _numer, long _denom) {
-    numer = _numer;
-    denom = _denom;
+Rational::Rational(long _numer, long _denom)
+    : numer(_numer), denom(_denom) {
     normalize();
 }
 

@@ -1,6 +1,11 @@
 #include <iostream>
 #include <cassert>
 #include "stack.hpp"
+//#include "rstack.hpp"
+#include "lstack.hpp"
+
+//typedef ResizingStack Stack;
+//typedef LinkedStack Stack;
 
 void convertBase() {
     unsigned n;
@@ -144,8 +149,36 @@ void autoTestParentheses() {
     std::cout << "OK" << std::endl;
 }
 
+void testCopyStack() {
+    LinkedStack s1;
+    for(int i = 1; i <= 10; i++)
+        s1.push(i);
+    LinkedStack s2 = s1;
+    std::cout << s2.pop() << std::endl;
+    // !!! std::cout << s1.pop() << std::endl;
+    s1.push(20);
+    std::cout << s1.peek() << std::endl;
+    std::cout << s2.pop() << std::endl;
+    std::cout << s1.pop() << std::endl;
+    std::cout << s1.pop() << std::endl;   
+}
+
+void testDestroyStack() {
+    for(int i = 0; i < 1E8; i++) {
+        // ResizingStack s;
+        LinkedStack s;
+        for(int j = 1; j <= 10; j++)
+            s.push(j);
+    }
+    std::cout << "Готово!\n";
+    char x; 
+    std::cin >> x;
+}
+
 int main(int, char**) {
-    // convertBase();
+    //convertBase();
     //testExpression();
-    autoTestParentheses();
+    //autoTestParentheses();
+    // !!! testCopyStack();
+    // !!! testDestroyStack();
 }

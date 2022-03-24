@@ -16,11 +16,8 @@ private:
 
     // ниво 1: конструктори
 public:
-    // конструктор по подразбиране
-    Rational();
-
-    // конструктор с параметри
-    Rational(long _numer, long _denom);
+    // конструктор с параметри по подразбиране
+    Rational(long _numer = 0, long _denom = 1);
 
     // ниво 1: селектори за достъп
     long getNumerator()   const { return numer; }
