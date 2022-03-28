@@ -24,11 +24,10 @@ double Point2D::distanceTo(Point2D const& p) const {
     double dy = p.getY() - getY();
     return sqrt(dx * dx + dy * dy);
     */
-   Point2D tp = p;
    Point2D tthis = *this;
    tthis.reflectOrigin();
-   tp.translate(tthis);
-   return tp.distanceToOrigin();
+   tthis.translate(p);
+   return tthis.distanceToOrigin();
 }
 
 // селектор за извеждане

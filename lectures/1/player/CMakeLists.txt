@@ -1,10 +1,10 @@
 cmake_minimum_required(VERSION 3.0.0)
-project(geometry VERSION 0.1.0)
+project(player VERSION 0.1.0)
 
 include(CTest)
 enable_testing()
 
-add_executable(geometry main.cpp point2d.cpp point3d.cpp)
+add_executable(player main.cpp player.cpp)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
