@@ -18,6 +18,13 @@ LinkedStack::LinkedStack(LinkedStack const& other) : top(nullptr) {
     }
 }
 
+// деструктор
+LinkedStack::~LinkedStack() {
+    // !!! delete top;
+    while (!empty()) pop();
+    // домашно: реализирайте го директно с представянето
+}
+
 // проверка за празнота
 bool LinkedStack::empty() const {
     return top == nullptr;

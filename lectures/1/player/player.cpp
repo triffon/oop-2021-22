@@ -11,6 +11,10 @@ Player::Player(Player const& other) : name(nullptr), score(other.score) {
     setName(other.name);
 }
 
+Player::~Player() {
+    delete[] name;
+}
+
 void Player::print() const {
     std::cout << "Играчът '" << getName()
               << "' има " << getScore() << " точки" << std::endl;

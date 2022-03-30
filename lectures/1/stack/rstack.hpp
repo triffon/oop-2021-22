@@ -28,6 +28,9 @@ public:
     // конструктор за копиране
     ResizingStack(ResizingStack const&);
 
+    // деструктор
+    ~ResizingStack();
+
     // проверка за празнота
     bool empty() const;
 

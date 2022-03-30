@@ -4,7 +4,7 @@
 
 struct StackElement {
     int data;
-    StackElement* next; 
+    StackElement* next;
 };
 
 class LinkedStack {
@@ -18,6 +18,9 @@ public:
 
     // конструктор за копиране
     LinkedStack(LinkedStack const&);
+
+    // деструктор
+    ~LinkedStack();
 
     // проверка за празнота
     bool empty() const;

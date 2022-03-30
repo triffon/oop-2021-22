@@ -179,6 +179,6 @@ int main(int, char**) {
     //convertBase();
     //testExpression();
     //autoTestParentheses();
-    testCopyStack();
-    // !!! testDestroyStack();
+    // testCopyStack();
+    testDestroyStack();
 }

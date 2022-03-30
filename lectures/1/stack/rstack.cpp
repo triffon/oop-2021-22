@@ -15,6 +15,10 @@ ResizingStack::ResizingStack(ResizingStack const& other)
         stack[i] = other.stack[i];
 }
 
+ResizingStack::~ResizingStack() {
+    delete[] stack;
+}
+
 // проверка за празнота
 bool ResizingStack::empty() const {
     return top == EMPTY_STACK;
