@@ -11,6 +11,7 @@ public:
 
     Player(const char* _name = "<анонимен>", unsigned _score = 0);
     Player(Player const&);
+    Player& operator=(Player const&);
     ~Player();
 
     char const* getName() const { return name; }

@@ -27,3 +27,11 @@ void Player::setName(char const* _name) {
     name = new char[strlen(_name) + 1];
     strcpy(name, _name);
 }
+
+Player& Player::operator=(Player const& other) {
+    if (this != &other) {
+        setName(other.name);
+        score = other.score;
+    }
+    return *this;
+}

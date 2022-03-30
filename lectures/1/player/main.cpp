@@ -13,7 +13,10 @@ Player createPlayer() {
 
 void testCopyPlayer() {
     Player p1("Гандалф Сивия", 45);
-    Player p2 = p1;
+    //Player p2 = p1;
+    Player p2;
+    p2 = p1;
+    p2 = p2;
     p1.print();
     p2.print();
     p2.setName("Гандалф Белия");
@@ -38,6 +41,6 @@ void testArrayPlayer() {
 }
 
 int main() {
-    // testCopyPlayer();
-    testArrayPlayer();
+    testCopyPlayer();
+    // testArrayPlayer();
 }
