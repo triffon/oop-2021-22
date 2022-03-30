@@ -3,11 +3,16 @@
 #include "rstack.hpp"
 
 // създаване на празен стек
-ResizingStack::ResizingStack() {
+ResizingStack::ResizingStack() : capacity(INITSTACK), top(EMPTY_STACK) {
     // заделяме първоначален размер
-    capacity = INITSTACK;
     stack = new int[capacity];
-    top = EMPTY_STACK;
+}
+
+ResizingStack::ResizingStack(ResizingStack const& other)
+  : top(other.top), capacity(other.capacity) {
+    stack = new int[capacity];
+    for(int i = 0; i <= top; i++)
+        stack[i] = other.stack[i];
 }
 
 // проверка за празнота

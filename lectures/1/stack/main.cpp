@@ -1,10 +1,10 @@
 #include <iostream>
 #include <cassert>
-#include "stack.hpp"
-//#include "rstack.hpp"
+//#include "stack.hpp"
+#include "rstack.hpp"
 #include "lstack.hpp"
 
-//typedef ResizingStack Stack;
+typedef ResizingStack Stack;
 //typedef LinkedStack Stack;
 
 void convertBase() {
@@ -150,13 +150,13 @@ void autoTestParentheses() {
 }
 
 void testCopyStack() {
-    LinkedStack s1;
+    ResizingStack s1;
     for(int i = 1; i <= 10; i++)
         s1.push(i);
-    LinkedStack s2 = s1;
+    ResizingStack s2 = s1;
     std::cout << s2.pop() << std::endl;
     // !!! std::cout << s1.pop() << std::endl;
-    s1.push(20);
+    s2.push(20);
     std::cout << s1.peek() << std::endl;
     std::cout << s2.pop() << std::endl;
     std::cout << s1.pop() << std::endl;
@@ -179,6 +179,6 @@ int main(int, char**) {
     //convertBase();
     //testExpression();
     //autoTestParentheses();
-    // !!! testCopyStack();
+    testCopyStack();
     // !!! testDestroyStack();
 }
