@@ -3,8 +3,19 @@
 #include "lstack.hpp"
 
 // създаване на празен стек
-LinkedStack::LinkedStack() {
-    top = nullptr;
+LinkedStack::LinkedStack() : top(nullptr) {}
+
+// копиране на стек
+LinkedStack::LinkedStack(LinkedStack const& other) : top(nullptr) {
+    if (other.top != nullptr) {
+        // other не е празен
+        StackElement* lastAdded = top = new StackElement{other.top->data, nullptr};
+        StackElement* nextToCopy = other.top->next;
+        while (nextToCopy) {
+            lastAdded = lastAdded->next = new StackElement{nextToCopy->data, nullptr};
+            nextToCopy = nextToCopy->next;
+        }
+    }
 }
 
 // проверка за празнота

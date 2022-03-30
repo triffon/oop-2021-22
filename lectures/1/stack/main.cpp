@@ -150,10 +150,10 @@ void autoTestParentheses() {
 }
 
 void testCopyStack() {
-    ResizingStack s1;
+    LinkedStack s1;
     for(int i = 1; i <= 10; i++)
         s1.push(i);
-    ResizingStack s2 = s1;
+    LinkedStack s2 = s1;
     std::cout << s2.pop() << std::endl;
     // !!! std::cout << s1.pop() << std::endl;
     s2.push(20);
