@@ -45,14 +45,16 @@ void testRational() {
     Rational q = Rational(5, 6);
     q.printnl();
     std::cout << q.toDouble() << std::endl;
-    q.read();
+    //q.read();
+    std::cin >> q;
 
     q.printnl();
-    r.print();
-    std::cout << " * ";
-    q.print();
-    std::cout << " = ";
-    multiply(r, q).printnl();
+    // r.print();
+
+    std::cout << r << " * " << q << " = " << multiply(r, q) << std::endl;
+ //   q.print();
+//  std::cout << " = ";
+ //   multiply(r, q).printnl();
 
     r.print();
     std::cout << " + ";

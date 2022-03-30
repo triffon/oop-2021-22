@@ -3,6 +3,8 @@
 #ifndef __RATIONAL_HPP
 #define __RATIONAL_HPP
 
+#include <iostream>
+
 class Rational {
 private:
     // ниво 0: представяне
@@ -35,6 +37,13 @@ public:
 
     // ниво 1: селектор за сравнение
     bool equals(Rational const& p) const;
+
+    // ниво 1: въвеждане и извеждане
+    // !!! std::ostream& operator<<(std::ostream&) const;
+
+    friend std::ostream& operator<<(std::ostream&, Rational const&);
+    // { return ... }
+    friend std::istream& operator>>(std::istream&, Rational&);
 };
 
 // ниво 2: аритметични операции за умножение и събиране

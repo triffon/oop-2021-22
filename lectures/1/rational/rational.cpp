@@ -71,3 +71,14 @@ bool lessThan(Rational const& p, Rational const& q) {
 inline bool Rational::equals(Rational const& p) const {
     return numer == p.numer && denom == p.denom;
 }
+
+std::ostream& operator<<(std::ostream& os, Rational const& r) {
+    return os << r.numer << '/' << r.denom;
+}
+
+std::istream& operator>>(std::istream& is, Rational& r) {
+    char c;
+    is >> r.numer >> c >> r.denom;
+    r.normalize();
+    return is;
+}
