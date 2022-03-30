@@ -31,6 +31,13 @@ void testCopyPlayer() {
     createPlayer().print();
 }
 
+void testArrayPlayer() {
+    Player* players = new Player[10];
+    // !!! delete players;
+    delete[] players;
+}
+
 int main() {
-    testCopyPlayer();
+    // testCopyPlayer();
+    testArrayPlayer();
 }
