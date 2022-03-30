@@ -8,6 +8,7 @@ public:
     // конструктори
     Point2D();
     Point2D(double _x, double _y);
+    Point2D(Point2D const&);
 
     // селектори за координатите
     double getX() const { return x; }

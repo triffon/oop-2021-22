@@ -17,7 +17,8 @@ void testGeometry() {
 void testGeometry3D() {
     Point3D p(1, 3, 8);
     p.printnl();
-    Point3D q;
+    Point3D q = p;
+    q.printnl();
     q.read();
     p.translate(q);
     std::cout << p.distanceToOrigin() << std::endl;

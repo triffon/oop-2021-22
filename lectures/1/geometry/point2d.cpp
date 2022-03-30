@@ -3,13 +3,19 @@
 #include "point2d.hpp"
 
 Point2D::Point2D() {
+    std::clog << "Point2D::Point2D()\n";
     setX(0);
     setY(0);
 }
 
 Point2D::Point2D(double _x, double _y) {
+    std::clog << "Point2D::Point2D(...)\n";
     setX(_x);
     setY(_y);
+}
+
+Point2D::Point2D(Point2D const& other) : x(other.x), y(other.y) {
+    std::clog << "Point2D::Point2D(Point2D const&)\n";
 }
 
 // селектор за разстояние до центъра на координатната система

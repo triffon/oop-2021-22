@@ -2,14 +2,24 @@
 #include "point3d.hpp"
 
 Point3D::Point3D() {
+    std::clog << "Point3D::Point3D()\n";
     setP(Point2D());
     setZ(0);
 }
 
-Point3D::Point3D(double _x, double _y, double _z) {
-    setP(Point2D(_x, _y));
+Point3D::Point3D(double _x, double _y, double _z) : p(_x, _y) {
+    std::clog << "Point3D::Point3D(...)\n";
+    getP().printnl();
+ //   setP(Point2D(_x, _y));
     setZ(_z);
 }
+
+/*
+Point3D::Point3D(Point3D const& other) : p(other.p), z(other.z) {
+    // setP(other.getP());
+    //setZ(other.getZ());
+}
+*/
 
 Point3D::Point3D(Point2D const& _p, double _z) {
     setP(_p);
