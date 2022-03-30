@@ -10,12 +10,12 @@ int main() {
     pesho.printCEO();
     gosho.printCEO();
     stamat.printCEO();
-    Worker t1e[2] = {Worker("pesho", 2, nullptr), Worker("gosho", 2, nullptr)};
-    Worker t2e[2] = {Worker("gosho", 2, nullptr), Worker("stamat", 2, nullptr)};
+    Worker t1e[2] = {pesho, gosho};
+    Worker t2e[2] = {gosho, stamat};
     Team t1("t1", t1e, 2);
     Team t2("t2", t2e, 2);
 
-    Team te[2] = {Team("t1", t1e, 2), Team("t2", t2e, 2)};
+    Team te[2] = {t1, t2};
 
     Company c("komapniq", te, 2);
     std::cout << c.hasEmployee("pesho") << "\n";

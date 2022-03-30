@@ -15,9 +15,18 @@ Team::Team(const char *name, const Worker *employees, size_t numberEmployees) : 
 
     this->employees = new Worker[numberEmployees];
     for (size_t i = 0; i < numberEmployees; i++) {
-        this->employees[i] = Worker(employees[i].getName(), 200, nullptr);
+        this->employees[i] = employees[i];
     }
     this->numberEmployees = numberEmployees;
+}
+
+Team::Team(const Team &a) : Team() {
+    this->setName(a.name);
+    this->employees = new Worker[a.getNumberEmployees()];
+    for (int i = 0; i < a.getNumberEmployees(); i++) {
+        this->employees[i] = a.employees[i];
+    }
+    this->numberEmployees = a.getNumberEmployees();
 }
 
 Team::~Team() {
@@ -47,4 +56,21 @@ const Worker *Team::getEmployees() const {
 
 size_t Team::getNumberEmployees() const {
     return this->numberEmployees;
+}
+
+Team &Team::operator=(const Team &o) {
+    if (this == &o) {
+        return *this;
+    }
+    this->setName(o.name);
+    if (this->employees != nullptr) {
+        delete[] this->employees;
+    }
+    this->employees = new Worker[o.numberEmployees];
+    for (size_t i = 0; i < o.numberEmployees; i++) {
+        this->employees[i] = o.employees[i];
+    }
+    this->numberEmployees = o.numberEmployees;
+
+    return *this;
 }

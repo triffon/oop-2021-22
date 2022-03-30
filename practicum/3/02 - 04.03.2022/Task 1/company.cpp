@@ -14,9 +14,18 @@ Company::Company(const char *name, const Team *teams, size_t numberTeams) : Comp
     this->setName(name);
     this->teams = new Team[numberTeams];
     for (size_t i = 0; i < numberTeams; i++) {
-        this->teams[i] = Team(teams[i].getName(), teams[i].getEmployees(), teams[i].getNumberEmployees());
+        this->teams[i] = teams[i];
     }
     this->numberTeams = numberTeams;
+}
+
+Company::Company(const Company &a) : Company() {
+    this->setName(a.name);
+    this->teams = new Team[a.numberTeams];
+    for (size_t i = 0; i < a.numberTeams; i++) {
+        this->teams[i] = a.teams[i];
+    }
+    this->numberTeams = a.numberTeams;
 }
 
 Company::~Company() {
@@ -29,7 +38,6 @@ Company::~Company() {
 }
 
 const char *Company::getName() const {
-
     return this->name;
 }
 
@@ -51,4 +59,21 @@ bool Company::hasEmployee(const char *name) {
         }
     }
     return false;
+}
+
+Company &Company::operator=(const Company &a) {
+    if (this == &a) {
+        return *this;
+    }
+    this->setName(a.name);
+    if (this->teams != nullptr) {
+        delete[] this->teams;
+    }
+    this->teams = new Team[numberTeams];
+    for (size_t i = 0; i < a.numberTeams; i++) {
+        this->teams[i] = a.teams[i];
+    }
+    this->numberTeams = a.numberTeams;
+
+    return *this;
 }
