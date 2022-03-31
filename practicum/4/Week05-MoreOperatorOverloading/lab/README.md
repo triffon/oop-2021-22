@@ -1,4 +1,4 @@
-## Преговор на наученото досега
+## Прeдефиниране на аритметични оператори
 
 ## Big number :eight::six::seven::six::two::four::eight::eight::five::seven::five:...:eight::seven:
 
