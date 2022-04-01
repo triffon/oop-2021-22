@@ -1,4 +1,5 @@
 #include "money.h"
+#include <iostream>
 
 int main()
 {
@@ -9,6 +10,10 @@ int main()
 
     Money money3 = 5 + money1;
     money3.print();
+
+    int a;
+
+    std::cin >> a;
     
     return 0;
 }
