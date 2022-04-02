@@ -42,7 +42,7 @@ Indesit
 
 Примерен изход:
 ```
-AEG 7000
+Miele WWD120
 ```
 
 # Git и GitHub
