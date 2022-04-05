@@ -1,7 +1,7 @@
 #include <iostream>
 #include <fstream>
 
-int main(int argc, char** argv)
+int main(int argc, char** argv) // the 'main' function has arguments, argc - arguments count, argv - the arguments
 {
     std::cout << "The number of command arguments is: " << argc << std::endl;
     for (int i = 0; i < argc; ++i)
