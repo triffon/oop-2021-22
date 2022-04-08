@@ -18,6 +18,8 @@ int main ()
 
     peopleOut.seekp(0);
 
+    std::cout << sizeof(Person) << std::endl;
+
     // writing three people to a binary file, note the parameter of the 'sizeof' function
     peopleOut.write(reinterpret_cast<const char*>(&person1), sizeof(Person));
     peopleOut.write(reinterpret_cast<const char*>(&person2), sizeof(Person));
