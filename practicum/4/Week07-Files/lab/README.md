@@ -17,13 +17,13 @@ void replace(const char* fileName, const char* find, const char* replace);
 
 Преди излълнение на програмата:
 ```
-Prepechena filiq s kaima se naricha princesa.
+Prepechena filiq s kaima se naricha princesa i tova ne podlezhi na komentar.
 Sinut na princesa Diana se kazva Harry.
 Princ Karl i princesa Klara krali klarineti...
 ```
 След излълнение на програмата:
 ```
-Prepechena filiq s kaima se naricha strandzhanka.
+Prepechena filiq s kaima se naricha strandzhanka i tova ne podlezhi na komentar.
 Sinut na strandzhanka Diana se kazva Harry.
 Princ Karl i strandzhanka Klara krali klarineti...
 ```
