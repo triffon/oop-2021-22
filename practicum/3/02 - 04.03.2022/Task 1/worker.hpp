@@ -10,6 +10,7 @@ class Worker {
   public:
     Worker();
     Worker(const char *name, double salary, Worker *boss);
+    Worker(const Worker &o);
     ~Worker();
 
     const char *getName() const;
@@ -17,6 +18,8 @@ class Worker {
     void setName(const char *name);
 
     void printCEO() const;
+
+    Worker &operator=(const Worker &o);
 };
 
 #endif // __WORKER_HPP

@@ -15,6 +15,12 @@ Worker::Worker(const char *name, double salary, Worker *boss) : Worker() {
     this->boss = boss;
 }
 
+Worker::Worker(const Worker &o) : Worker() {
+    this->salary = o.salary;
+    this->boss = o.boss;
+    this->setName(o.name);
+}
+
 Worker::~Worker() {
     if (this->name != nullptr) {
         delete[] this->name;
@@ -40,4 +46,16 @@ void Worker::printCEO() const {
     } else {
         std::cout << this->getName() << std::endl;
     }
+}
+
+Worker &Worker::operator=(const Worker &o) {
+    if (this == &o) {
+        return *this;
+    }
+
+    this->setName(o.name);
+    this->salary = o.salary;
+    this->boss = o.boss;
+
+    return *this;
 }
