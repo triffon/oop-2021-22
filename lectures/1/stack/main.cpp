@@ -4,8 +4,8 @@
 #include "rstack.hpp"
 #include "lstack.hpp"
 
-typedef ResizingStack Stack;
-//typedef LinkedStack Stack;
+//typedef ResizingStack Stack;
+typedef LinkedStack Stack;
 
 void convertBase() {
     unsigned n;
@@ -150,10 +150,13 @@ void autoTestParentheses() {
 }
 
 void testCopyStack() {
-    LinkedStack s1;
+    Stack s1;
     for(int i = 1; i <= 10; i++)
         s1.push(i);
-    LinkedStack s2 = s1;
+    //Stack s2 = s1;
+    Stack s2;
+    s2 = s1;
+    s2 = s2;
     std::cout << s2.pop() << std::endl;
     // !!! std::cout << s1.pop() << std::endl;
     s2.push(20);
@@ -179,6 +182,6 @@ int main(int, char**) {
     //convertBase();
     //testExpression();
     //autoTestParentheses();
-    // testCopyStack();
-    testDestroyStack();
+    testCopyStack();
+    // testDestroyStack();
 }

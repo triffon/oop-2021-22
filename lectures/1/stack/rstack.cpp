@@ -10,13 +10,27 @@ ResizingStack::ResizingStack() : capacity(INITSTACK), top(EMPTY_STACK) {
 
 ResizingStack::ResizingStack(ResizingStack const& other)
   : top(other.top), capacity(other.capacity) {
+    copyData(other);
+}
+
+ResizingStack::~ResizingStack() {
+    delete[] stack;
+}
+
+void ResizingStack::copyData(ResizingStack const& other) {
     stack = new int[capacity];
     for(int i = 0; i <= top; i++)
         stack[i] = other.stack[i];
 }
 
-ResizingStack::~ResizingStack() {
-    delete[] stack;
+ResizingStack& ResizingStack::operator=(ResizingStack const& other) {
+    if (this != &other) {
+        delete[] stack;
+        top = other.top;
+        capacity = other.capacity;
+        copyData(other);
+    }
+    return *this;
 }
 
 // проверка за празнота
