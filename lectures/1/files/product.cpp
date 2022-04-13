@@ -24,12 +24,12 @@ std::ostream& operator<<(std::ostream& os, Product const& product) {
                  product.getName() << std::endl;
 }
 
-void Product::write(std::ofstream& ofs) const {
-    ofs.seekp((id - INITIAL_ID) * sizeof(Product));
-    ofs.write((char const*)this, sizeof(Product));
+void Product::write(std::fstream& fs) const {
+    fs.seekp((id - INITIAL_ID) * sizeof(Product));
+    fs.write((char const*)this, sizeof(Product));
 }
 
-void Product::read(std::ifstream& ifs, unsigned _id) {
-    ifs.seekg((_id - INITIAL_ID) * sizeof(Product));
-    ifs.read((char*)this, sizeof(Product));
+void Product::read(std::fstream& fs, unsigned _id) {
+    fs.seekg((_id - INITIAL_ID) * sizeof(Product));
+    fs.read((char*)this, sizeof(Product));
 }

@@ -20,9 +20,9 @@ void writeProducts(Product* products, size_t count, std::ostream& os = std::cout
         os << products[i];
 }
 
-void writeProductsInSafe(Product* products, size_t count, std::ofstream& ofs) {
+void writeProductsInSafe(Product* products, size_t count, std::fstream& fs) {
     for(int i = 0; i < count; i++)
-        products[i].write(ofs);
+        products[i].write(fs);
 }
 
 void testWarehouse() {
@@ -36,23 +36,21 @@ void testWarehouse() {
     of << count << std::endl;
     writeProducts(products, count, of);
 
-    std::ofstream safe("safe.bin", std::ios::out | std::ios::binary);
+    std::fstream safe("safe.bin", std::ios::out | std::ios::binary);
     writeProductsInSafe(products, count, safe);
     safe.close();
 
+    safe.open("safe.bin", std::ios::in | std::ios::out | std::ios::binary);
     Product product;
-    std::ifstream safe2("safe.bin", std::ios::in | std::ios::binary);
-    product.read(safe2, 110);
+    product.read(safe, 110);
     std::cout << product;
     product.applyDiscount(0.1);
-    std::ofstream safe3("safe.bin", std::ios::out | std::ios::binary);
-    product.write(safe3);
-    safe3.close();
+    product.write(safe);
 
-    std::ifstream safe4("safe.bin", std::ios::in | std::ios::binary);
-    product.read(safe4, 110);
-    std::cout << product;
-    safe4.close();
+    Product product2;
+    product2.read(safe, 110);
+    std::cout << product2;
+    safe.close();
 }
 
 int main() {

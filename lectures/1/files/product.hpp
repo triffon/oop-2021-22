@@ -24,10 +24,10 @@ public:
     friend std::istream& operator>>(std::istream& is, Product&);
 
     // неформатиран вход
-    void read(std::ifstream& ifs, unsigned _id);
+    void read(std::fstream& ifs, unsigned _id);
 
     // неформатиран изход
-    void write(std::ofstream& ofs) const;
+    void write(std::fstream& ofs) const;
 };
 
 // форматиран изход
