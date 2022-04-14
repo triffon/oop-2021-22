@@ -12,12 +12,21 @@ private:
     // указател към двойната кутия, която е връх на стека
     StackElement* top;
 
+    // копиране на стек
+    void copyStack(LinkedStack const&);
+
+    // изтриване на стек
+    void erase();
+
 public:
     // създаване на празен стек
     LinkedStack();
 
     // конструктор за копиране
     LinkedStack(LinkedStack const&);
+
+    // операция за присвояване
+    LinkedStack& operator=(LinkedStack const&);
 
     // деструктор
     ~LinkedStack();

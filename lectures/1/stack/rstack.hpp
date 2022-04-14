@@ -21,12 +21,18 @@ private:
 
     // разширяване на стека
     void resize();
+
+    // копиране на стека
+    void copyData(ResizingStack const&);
 public:
     // създаване на празен стек
     ResizingStack();
 
     // конструктор за копиране
     ResizingStack(ResizingStack const&);
+
+    // операция за присвояване
+    ResizingStack& operator=(ResizingStack const&);
 
     // деструктор
     ~ResizingStack();
