@@ -31,6 +31,9 @@ class IntVector
     int& back();
     const int& back() const;
 
+    int& operator[](size_t);
+    const int& operator[](size_t) const;
+
     void swap(IntVector&);
  private:
     int * m_data{nullptr};
