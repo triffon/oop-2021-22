@@ -7,6 +7,9 @@ class Player {
     //char name[MAXNAME];
     char* name;
     unsigned score;
+
+    static unsigned playerCount;
+
 public:
 
     Player(const char* _name = "<анонимен>", unsigned _score = 0);
@@ -20,6 +23,8 @@ public:
     void setName(char const* _name);
 
     void print() const;
+
+    static unsigned getPlayerCount();// { return playerCount; }
 };
 
 #endif

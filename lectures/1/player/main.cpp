@@ -2,6 +2,7 @@
 #include "player.hpp"
 
 void anonymousPrint(Player p) {
+    std::clog << "anonymousPrint: В момента имаме " << Player::getPlayerCount() << " играчи" << std::endl;
     p.print();
     p.setName("<анонимен>");
     p.print();
@@ -32,6 +33,8 @@ void testCopyPlayer() {
 
     anonymousPrint("Проба");
     createPlayer().print();
+
+    std::clog << "В момента имаме " << Player::getPlayerCount() << " играчи" << std::endl;
 }
 
 void testArrayPlayer() {

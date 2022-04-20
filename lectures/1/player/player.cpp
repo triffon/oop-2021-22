@@ -2,16 +2,21 @@
 #include <iostream>
 #include "player.hpp"
 
+unsigned Player::playerCount = 0;
+
 Player::Player(char const* _name, unsigned _score)
     : name(nullptr), score(_score) {
+    playerCount++;
     setName(_name);
 }
 
 Player::Player(Player const& other) : name(nullptr), score(other.score) {
+    playerCount++;
     setName(other.name);
 }
 
 Player::~Player() {
+    playerCount--;
     std::clog << "~Player()\n";
     delete[] name;
 }
@@ -34,4 +39,8 @@ Player& Player::operator=(Player const& other) {
         score = other.score;
     }
     return *this;
+}
+
+unsigned Player::getPlayerCount() {
+    return playerCount;
 }
