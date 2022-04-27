@@ -46,14 +46,28 @@ void writeArray(T* array, size_t count, char const* name = "a", std::ostream& os
     }
 }
 
+template <typename T>
+unsigned countOccurrences(T* array, size_t count, T const& element) {
+    unsigned occurrences = 0;
+    for(int i = 0; i < count; i++) {
+        if (array[i] == element)
+            occurrences++;
+    }
+    return occurrences;
+}
+
 void testReadWriteArray() {
     const int MAX = 10;
     int array[MAX];
-    writeArray(array, readArray(array), "array");
+    size_t numbersCount = readArray(array);
+    writeArray(array, numbersCount, "array");
+    std::cout << "Числото 3 се среща " << countOccurrences(array, numbersCount, 3)
+              << "пъти " << std::endl;
 
     Product products[MAX];
     writeArray(products, readArray(products), "products");
-
+    Product chair(103, "Хубав стол", 29.90);
+    //  countOccurrences(products, 3, chair);
 
 }
 
