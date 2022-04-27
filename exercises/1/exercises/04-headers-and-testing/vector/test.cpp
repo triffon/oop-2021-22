@@ -114,3 +114,20 @@ TEST_CASE("push_back") {
         }
     }
 }
+
+TEST_CASE("operator []") {
+    IntVector vec{};
+
+    vec.push_back(0);
+    vec.push_back(1);
+    vec.push_back(2);
+
+    CHECK(vec[0] == 0);
+    CHECK(vec[1] == 1);
+    CHECK(vec[2] == 2);
+
+    vec[0] = 10;
+
+    CHECK(vec[0] == 10);
+    CHECK(vec.front() == 10);
+}

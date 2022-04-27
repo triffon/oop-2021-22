@@ -117,3 +117,13 @@ const int& IntVector::back() const
 {
     return *(m_data + m_size - 1);
 }
+
+int& IntVector::operator[](size_t pos)
+{
+    return m_data[pos];
+}
+
+const int& IntVector::operator[](size_t pos) const
+{
+    return m_data[pos];
+}
