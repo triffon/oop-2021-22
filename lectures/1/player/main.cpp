@@ -1,11 +1,12 @@
 #include <iostream>
 #include "player.hpp"
+#include "hero.hpp"
 
 void anonymousPrint(Player p) {
     std::clog << "anonymousPrint: В момента имаме " << Player::getPlayerCount() << " играчи" << std::endl;
-    p.print();
+    p.println();
     p.setName("<анонимен>");
-    p.print();
+    p.println();
 }
 
 Player createPlayer() {
@@ -18,18 +19,18 @@ void testCopyPlayer() {
     Player p2;
     p2 = p1;
     p2 = p2;
-    p1.print();
-    p2.print();
+    p1.println();
+    p2.println();
     p2.setName("Гандалф Белия");
-    p1.print();
-    p2.print();
+    p1.println();
+    p2.println();
     anonymousPrint(p2);
-    p1.print();
-    p2.print();
+    p1.println();
+    p2.println();
     // !!! Player bad("НВОАГаняогаяновгяантогяанотвгяаонтвягаонтвягаовнтьгаотянвьаогнтвьяаогнтвьаяогнтвьяаогтнвьяагнтовьяа");
 
     Player p3 = "Катнис Евърдийн";
-    p3.print();
+    p3.println();
 
     anonymousPrint("Проба");
     createPlayer().print();
@@ -43,7 +44,13 @@ void testArrayPlayer() {
     delete[] players;
 }
 
+void testHero() {
+    Hero gandalf("Гандалф Сивия", 45, 10);
+    gandalf.println();
+}
+
 int main() {
-    testCopyPlayer();
+    // testCopyPlayer();
     // testArrayPlayer();
+    testHero();
 }

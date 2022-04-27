@@ -1,6 +1,8 @@
 #ifndef __PLAYER_HPP
 #define __PLAYER_HPP
 
+#include <iostream>
+
 const int MAXNAME = 100;
 
 class Player {
@@ -22,7 +24,8 @@ public:
 
     void setName(char const* _name);
 
-    void print() const;
+    void print(std::ostream& os = std::cout) const;
+    void println(std::ostream& os = std::cout) const;
 
     static unsigned getPlayerCount();// { return playerCount; }
 };

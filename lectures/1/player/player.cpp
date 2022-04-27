@@ -1,5 +1,4 @@
 #include <cstring>
-#include <iostream>
 #include "player.hpp"
 
 unsigned Player::playerCount = 0;
@@ -21,9 +20,14 @@ Player::~Player() {
     delete[] name;
 }
 
-void Player::print() const {
-    std::cout << "Играчът '" << getName()
-              << "' има " << getScore() << " точки" << std::endl;
+void Player::print(std::ostream& os) const {
+    os << "Играчът '" << getName()
+       << "' има " << getScore() << " точки";
+}
+
+void Player::println(std::ostream& os) const {
+    print(os);
+    os << std::endl;
 }
 
 void Player::setName(char const* _name) {
