@@ -8,9 +8,11 @@ const int MAXNAME = 100;
 class Player {
     //char name[MAXNAME];
     char* name;
-    unsigned score;
 
     static unsigned playerCount;
+
+protected:
+    unsigned score;
 
 public:
 

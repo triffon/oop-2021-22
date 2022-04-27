@@ -2,6 +2,7 @@
 
 Hero::Hero(const char* _name, unsigned _score, unsigned _level)
     : Player(_name, _score), level(_level) {
+    // ! score++;
     // !!! score = _score;
     // !!! setScore(_score);
 }

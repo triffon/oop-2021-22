@@ -47,6 +47,24 @@ void testArrayPlayer() {
 void testHero() {
     Hero gandalf("Гандалф Сивия", 45, 10);
     gandalf.println();
+    // !!! std::cout << gandalf.score << std::endl;
+    Player p = gandalf;
+    p.println();
+    Player* pp = &gandalf;
+    pp->println();
+    pp->setName("Гандалф Белия");
+    gandalf.println();
+    Player& rp = *pp;
+    rp.println();
+
+    Player katniss = "Катнис Евърдийн";
+    // !!! pp = &katniss;
+    // ! Hero h = (Hero const&)katniss;
+    // ! h.println();
+    Hero* ph = (Hero*)pp;
+    ph->println();
+    Hero& rh = (Hero&)rp;
+    rh.println();
 }
 
 int main() {
@@ -54,3 +72,4 @@ int main() {
     // testArrayPlayer();
     testHero();
 }
+
