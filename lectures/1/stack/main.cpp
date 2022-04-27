@@ -4,8 +4,8 @@
 #include "rstack.hpp"
 #include "lstack.hpp"
 
-//typedef ResizingStack Stack;
-typedef LinkedStack Stack;
+//using Stack = ResizingStack;
+using Stack = LinkedStack<int>;
 
 void convertBase() {
     unsigned n;
@@ -76,7 +76,8 @@ int calculate(int left, char op, int right) {
 }
 
 int calculateExpression(char const* expr) {
-    Stack results, ops;
+    LinkedStack<int> results;
+    LinkedStack<char> ops;
     while (*expr) {
         if (isdigit(*expr))
             // <цифра>
@@ -169,7 +170,7 @@ void testCopyStack() {
 void testDestroyStack() {
     for(int i = 0; i < 1E8; i++) {
         // ResizingStack s;
-        LinkedStack s;
+        LinkedStack<int> s;
         for(int j = 1; j <= 10; j++)
             s.push(j);
     }
@@ -182,6 +183,6 @@ int main(int, char**) {
     //convertBase();
     //testExpression();
     //autoTestParentheses();
-    testCopyStack();
-    // testDestroyStack();
+    //testCopyStack();
+     testDestroyStack();
 }

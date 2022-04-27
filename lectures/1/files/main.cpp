@@ -1,6 +1,7 @@
 #include <iostream>
 #include <fstream>
 #include "product.hpp"
+#include "../stack/lstack.hpp"
 
 size_t readProducts(Product* products, std::istream& is = std::cin) {
     size_t count;
@@ -26,11 +27,18 @@ void writeProductsInSafe(Product* products, size_t count, std::fstream& fs) {
 }
 
 void testWarehouse() {
+    LinkedStack<Product> productsStack;
+
     const size_t MAX = 100;
     Product products[MAX];
     size_t count = readProducts(products);
     writeProducts(products, count);
 
+    for(int i = 0; i < count; i++)
+        productsStack.push(products[i]);
+
+    while (!productsStack.empty())
+        std::clog << productsStack.pop(); 
 
     std::ofstream of("products.txt");
     of << count << std::endl;
