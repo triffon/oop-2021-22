@@ -99,6 +99,27 @@ void testSuperHero() {
     } else {
         std::cout << "Изглежда героите са равносилни!";
     }
+
+    Hero* hero = &gandalf;
+    winner = Hero::battle(superman, *hero, 30);
+    if (winner != nullptr) {
+        std::cout << "Имаме победител!" << std::endl;
+        winner->println();
+    } else {
+        std::cout << "Изглежда героите са равносилни!";
+    }
+
+    SuperHero drstrange("Dr. Strange", 20, 8, "отваряне на портали", 9);
+    hero = &drstrange;
+
+    winner = Hero::battle(superman, *hero, 40);
+    if (winner != nullptr) {
+        std::cout << "Имаме победител!" << std::endl;
+        winner->println();
+    } else {
+        std::cout << "Изглежда героите са равносилни!";
+    }
+
 }
 
 int main() {
