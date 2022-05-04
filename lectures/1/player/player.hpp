@@ -14,6 +14,8 @@ class Player {
 protected:
     unsigned score;
 
+    void addPoints(unsigned points) { score += points; }
+
 public:
 
     Player(const char* _name = "<анонимен>", unsigned _score = 0);

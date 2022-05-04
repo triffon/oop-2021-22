@@ -81,6 +81,23 @@ void testSuperHero() {
     superman.println();
     superman.deactivatePower();
     superman.println();
+
+    Hero gandalf("Гандалф", 45, 10);
+    Hero* winner = Hero::battle(superman, gandalf, 10);
+    if (winner != nullptr) {
+        std::cout << "Имаме победител!" << std::endl;
+        winner->println();
+    } else {
+        std::cout << "Изглежда героите са равносилни!";
+    }
+    superman.activatePower();
+    winner = Hero::battle(superman, gandalf, 20);
+    if (winner != nullptr) {
+        std::cout << "Имаме победител!" << std::endl;
+        winner->println();
+    } else {
+        std::cout << "Изглежда героите са равносилни!";
+    }
 }
 
 int main() {
