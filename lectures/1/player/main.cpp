@@ -1,6 +1,7 @@
 #include <iostream>
 #include "player.hpp"
 #include "hero.hpp"
+#include "superhero.hpp"
 
 void anonymousPrint(Player p) {
     std::clog << "anonymousPrint: В момента имаме " << Player::getPlayerCount() << " играчи" << std::endl;
@@ -67,9 +68,25 @@ void testHero() {
     rh.println();
 }
 
+void testSuperHero() {
+    SuperHero superman("Супермен", 100, 5, "летене", false, 10);
+    superman.println();
+    SuperHero superman2 = superman;
+    superman2.println();
+    SuperHero superman3;
+    superman3.println();
+    superman3 = superman;
+    superman3.println();
+    superman.activatePower();
+    superman.println();
+    superman.deactivatePower();
+    superman.println();
+}
+
 int main() {
     // testCopyPlayer();
     // testArrayPlayer();
-    testHero();
+    // testHero();
+    testSuperHero();
 }
 

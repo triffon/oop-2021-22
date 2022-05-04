@@ -9,6 +9,8 @@ class SuperHero : public Hero {
     bool isActivated;
     unsigned levelBoost;
 
+    void setPower(char const* _power);
+
 public:
     SuperHero(char const* _name = "<анонимен>",
               unsigned _score = 0,
