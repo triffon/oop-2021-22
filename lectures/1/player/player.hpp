@@ -28,8 +28,8 @@ public:
 
     void setName(char const* _name);
 
-    void print(std::ostream& os = std::cout) const;
-    void println(std::ostream& os = std::cout) const;
+    virtual void print(std::ostream& os = std::cout) const;
+    virtual void println(std::ostream& os = std::cout) const;
 
     static unsigned getPlayerCount();// { return playerCount; }
 };

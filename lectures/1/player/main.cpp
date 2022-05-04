@@ -109,7 +109,7 @@ void testSuperHero() {
         std::cout << "Изглежда героите са равносилни!";
     }
 
-    SuperHero drstrange("Dr. Strange", 20, 8, "отваряне на портали", 9);
+    SuperHero drstrange("Dr. Strange", 20, 8, "отваряне на портали", true, 9);
     hero = &drstrange;
 
     winner = Hero::battle(superman, *hero, 40);
