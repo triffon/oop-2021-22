@@ -91,6 +91,7 @@ void testSuperHero() {
         std::cout << "Изглежда героите са равносилни!";
     }
     superman.activatePower();
+    superman.println();
     winner = Hero::battle(superman, gandalf, 20);
     if (winner != nullptr) {
         std::cout << "Имаме победител!" << std::endl;

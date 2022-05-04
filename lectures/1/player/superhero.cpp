@@ -50,22 +50,29 @@ SuperHero::~SuperHero() {
     delete[] power;
 }
 
+unsigned SuperHero::getLevel() const {
+    if (isActivated)
+        return Hero::getLevel() + levelBoost;
+    return Hero::getLevel();
+}
+
 void SuperHero::activatePower() {
     if (!isActivated) {
         isActivated = true;
-        level += levelBoost;
+//        level += levelBoost;
     }
 }
 
 void SuperHero::deactivatePower() {
     if (isActivated) {
         isActivated = false;
-        level -= levelBoost;
+//        level -= levelBoost;
     }
 }
 
 void SuperHero::print(std::ostream& os) {
-    Hero::print(os);
+    Player::print(os);
+    os << " и е супергерой на ниво " << getLevel();
     os << " и има суперсила " << getPower() << ", която";
     if (!isUsingPower())
         os << " НЕ";

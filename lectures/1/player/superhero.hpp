@@ -28,6 +28,8 @@ public:
     void print(std::ostream& os = std::cout);
     void println(std::ostream& os = std::cout);
 
+    unsigned getLevel() const;
+
     char const* getPower() const { return power; }
     bool isUsingPower() const { return isActivated; }
 };

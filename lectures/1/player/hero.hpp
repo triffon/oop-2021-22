@@ -3,7 +3,6 @@
 #include "player.hpp"
 
 class Hero : public Player {
-protected:
     unsigned level;
 public:
 
