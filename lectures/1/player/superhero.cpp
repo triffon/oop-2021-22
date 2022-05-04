@@ -70,7 +70,7 @@ void SuperHero::deactivatePower() {
     }
 }
 
-void SuperHero::print(std::ostream& os) {
+void SuperHero::print(std::ostream& os) const {
     Player::print(os);
     os << " и е супергерой на ниво " << getLevel();
     os << " и има суперсила " << getPower() << ", която";
@@ -79,7 +79,7 @@ void SuperHero::print(std::ostream& os) {
     os << " използва в момента";
 }
 
-void SuperHero::println(std::ostream& os) {
+void SuperHero::println(std::ostream& os) const {
     print(os);
     os << std::endl;
 }

@@ -25,9 +25,8 @@ public:
 
     void activatePower();
     void deactivatePower();
-    void print(std::ostream& os = std::cout);
-    void println(std::ostream& os = std::cout);
-
+    void print(std::ostream& os = std::cout) const;
+    void println(std::ostream& os = std::cout) const;
     unsigned getLevel() const;
 
     char const* getPower() const { return power; }
