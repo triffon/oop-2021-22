@@ -5,6 +5,7 @@
 #include "superhero.hpp"
 #include "ai.hpp"
 #include "bot.hpp"
+#include "boss.hpp"
 
 void anonymousPrint(Player p) {
     std::clog << "anonymousPrint: В момента имаме " << Player::getPlayerCount() << " играчи" << std::endl;
@@ -168,7 +169,14 @@ void testAI() {
 
 void testBot() {
     Bot bot("Ботьо", 10, "невронна мрежа", 0.2, 5);
-    bot.println();
+    bot.print();
+    Bot bot1("Deep Thought", 20, "minimax", 3.8, 5),
+        bot2("HAL 9000", 40, "alpha-beta", 1.9, 15);
+}
+
+void testBoss() {
+    Boss boss("Саурон", 100, "тъмни сили", 1.2, 80, 50, 100);
+    boss.print();
 }
 
 int main() {
@@ -178,6 +186,7 @@ int main() {
     // testSuperHero();
     // testPlayers();
     // testAI();
-    testBot();
+    //testBot();
+    testBoss();
 }
 
