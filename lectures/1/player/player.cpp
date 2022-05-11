@@ -7,6 +7,11 @@ Player::Player(char const* _name, unsigned _score)
     : name(nullptr), score(_score) {
     playerCount++;
     setName(_name);
+    /*
+    std::cout << "Конструктор на Player:\n-------------------\n";
+    println();
+    std::cout << "---------------------\n";
+    */
 }
 
 Player::Player(Player const& other) : name(nullptr), score(other.score) {
@@ -15,6 +20,11 @@ Player::Player(Player const& other) : name(nullptr), score(other.score) {
 }
 
 Player::~Player() {
+    /*
+    std::cout << "Деструктор на Player:\n-------------------\n";
+    println();
+    std::cout << "---------------------\n";
+    */
     playerCount--;
     std::clog << "~Player()\n";
     delete[] name;

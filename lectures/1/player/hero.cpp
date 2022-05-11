@@ -12,12 +12,6 @@ void Hero::print(std::ostream& os) const {
     os << " и е герой на ниво " << getLevel();
 }
 
-void Hero::println(std::ostream& os) const {
-    print(os);
-    os << std::endl;
-}
-
-
 Hero* Hero::battle(Hero& hero1, Hero& hero2, unsigned prize) {
     std::cout << "==============================\n";
     std::cout << "Заформя се епична битка между:" << std::endl;

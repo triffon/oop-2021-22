@@ -78,8 +78,3 @@ void SuperHero::print(std::ostream& os) const {
         os << " НЕ";
     os << " използва в момента";
 }
-
-void SuperHero::println(std::ostream& os) const {
-    print(os);
-    os << std::endl;
-}

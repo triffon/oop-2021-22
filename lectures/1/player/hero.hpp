@@ -16,7 +16,6 @@ public:
 
     // извеждане
     void print(std::ostream& os = std::cout) const;
-    void println(std::ostream& os = std::cout) const;
 
     static Hero* battle(Hero& hero1, Hero& hero2, unsigned prize = 1);
 };
