@@ -66,10 +66,10 @@ void testHero() {
     // !!! pp = &katniss;
     // ! Hero h = (Hero const&)katniss;
     // ! h.println();
-    Hero* ph = (Hero*)pp;
-    ph->println();
-    Hero& rh = (Hero&)rp;
-    rh.println();
+    // !!! не работи при виртуално наследяване !!! Hero* ph = (Hero*)pp;
+    // ph->println();
+    // !!! не работи при виртуално наследяване !!! Hero& rh = (Hero&)rp;
+    // rh.println();
 }
 
 void testSuperHero() {
@@ -177,6 +177,13 @@ void testBot() {
 void testBoss() {
     Boss boss("Саурон", 100, "тъмни сили", 1.2, 80, 50, 100);
     boss.print();
+    std::cout << boss.getName() << std::endl;
+    std::cout << &boss << std::endl;
+    std::cout << ((Player&)(Hero&)boss).getName() << std::endl;
+    std::cout << ((Player&)(Bot&)boss).getName() << std::endl;
+    std::cout << &(Player&)(Hero&)boss << ' ' << &(Player&)(Bot&)boss << std::endl;
+    std::cout << &(Player&)boss << std::endl;
+    std::cout << &(Hero&)boss << ' ' << &(Bot&)boss << std::endl;
 }
 
 int main() {
@@ -186,7 +193,7 @@ int main() {
     // testSuperHero();
     // testPlayers();
     // testAI();
-    //testBot();
+    // testBot();
     testBoss();
 }
 

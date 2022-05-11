@@ -2,7 +2,7 @@
 #define __HERO_HPP
 #include "player.hpp"
 
-class Hero : public Player {
+class Hero : virtual public Player {
     unsigned level;
 public:
 
