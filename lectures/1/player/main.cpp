@@ -146,10 +146,24 @@ void testSuperHero() {
     std::cout << "Изтрихме hero!\n";
 }
 
+void testPlayers() {
+    Player* players[] = { new Player("Катнис Евърдийн", 1),
+                          new Hero("Гандалф", 45, 10),
+                          new SuperHero("Супермен", 100, 5, "летене", false, 10),
+                          new SuperHero("Dr. Strange", 20, 8, "отваряне на портали", true, 9)
+                        };
+    size_t playerCount = sizeof(players) / sizeof(players[0]);
+    for(int i = 0; i < playerCount; i++)
+        players[i]->println();
+    for(int i = 0; i < playerCount; i++)
+        delete players[i];
+}
+
 int main() {
     // testCopyPlayer();
     // testArrayPlayer();
     // testHero();
-    testSuperHero();
+    // testSuperHero();
+    testPlayers();
 }
 
