@@ -12,7 +12,7 @@ public:
            unsigned _level = 1);
 
     // селектор
-    unsigned getLevel() const { return level; }
+    virtual unsigned getLevel() const { return level; }
 
     // извеждане
     void print(std::ostream& os = std::cout) const;

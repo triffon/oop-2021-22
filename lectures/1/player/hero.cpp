@@ -19,6 +19,7 @@ void Hero::println(std::ostream& os) const {
 
 
 Hero* Hero::battle(Hero& hero1, Hero& hero2, unsigned prize) {
+    std::cout << "==============================\n";
     std::cout << "Заформя се епична битка между:" << std::endl;
     hero1.println();
     std::cout << "и" << std::endl;
@@ -31,5 +32,6 @@ Hero* Hero::battle(Hero& hero1, Hero& hero2, unsigned prize) {
         winner = &hero2;
     if (winner != nullptr)
         winner->addPoints(prize);
+    std::cout << "==============================\n";
     return winner;
 }

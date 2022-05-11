@@ -120,6 +120,14 @@ void testSuperHero() {
         std::cout << "Изглежда героите са равносилни!";
     }
 
+    drstrange.deactivatePower();
+    winner = Hero::battle(superman, *hero, 50);
+    if (winner != nullptr) {
+        std::cout << "Имаме победител!" << std::endl;
+        winner->println();
+    } else {
+        std::cout << "Изглежда героите са равносилни!";
+    }
 }
 
 int main() {
