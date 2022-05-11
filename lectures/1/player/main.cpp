@@ -1,4 +1,5 @@
 #include <iostream>
+#include <typeinfo>
 #include "player.hpp"
 #include "hero.hpp"
 #include "superhero.hpp"
@@ -69,6 +70,8 @@ void testHero() {
 }
 
 void testSuperHero() {
+    std::cout << sizeof(Player) << std::endl;
+
     SuperHero superman("Супермен", 100, 5, "летене", false, 10);
     superman.println();
     SuperHero superman2 = superman;
@@ -109,8 +112,17 @@ void testSuperHero() {
         std::cout << "Изглежда героите са равносилни!";
     }
 
-    SuperHero drstrange("Dr. Strange", 20, 8, "отваряне на портали", true, 9);
-    hero = &drstrange;
+    std::cout << typeid(hero).name() << ' ' << typeid(*hero).name() << std::endl;
+
+    if (typeid(*hero) == typeid(SuperHero))
+        std::cout << "Я, това било супергерой!\n";
+
+    hero = new SuperHero("Dr. Strange", 20, 8, "отваряне на портали", true, 9);
+
+    std::cout << typeid(hero).name() << ' ' << typeid(*hero).name() << std::endl;
+
+    if (typeid(*hero) == typeid(SuperHero))
+        std::cout << "Я, това било супергерой!\n";
 
     winner = Hero::battle(superman, *hero, 40);
     if (winner != nullptr) {
@@ -120,7 +132,7 @@ void testSuperHero() {
         std::cout << "Изглежда героите са равносилни!";
     }
 
-    drstrange.deactivatePower();
+    ((SuperHero*)hero)->deactivatePower();
     winner = Hero::battle(superman, *hero, 50);
     if (winner != nullptr) {
         std::cout << "Имаме победител!" << std::endl;
@@ -128,6 +140,10 @@ void testSuperHero() {
     } else {
         std::cout << "Изглежда героите са равносилни!";
     }
+
+    std::cout << "Изтриваме hero:\n";
+    delete hero;
+    std::cout << "Изтрихме hero!\n";
 }
 
 int main() {

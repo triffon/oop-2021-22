@@ -47,6 +47,7 @@ SuperHero& SuperHero::operator=(SuperHero const& other) {
 
 SuperHero::~SuperHero() {
     // !!! Hero::~Hero();
+    std::cout << "~SuperHero()\n";
     delete[] power;
 }
 
