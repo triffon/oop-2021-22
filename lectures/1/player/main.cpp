@@ -3,6 +3,7 @@
 #include "player.hpp"
 #include "hero.hpp"
 #include "superhero.hpp"
+#include "ai.hpp"
 
 void anonymousPrint(Player p) {
     std::clog << "anonymousPrint: В момента имаме " << Player::getPlayerCount() << " играчи" << std::endl;
@@ -159,11 +160,17 @@ void testPlayers() {
         delete players[i];
 }
 
+void testAI() {
+    AI ai("невронна мрежа", 0.2);
+    ai.print();
+}
+
 int main() {
     // testCopyPlayer();
     // testArrayPlayer();
     // testHero();
     // testSuperHero();
-    testPlayers();
+    // testPlayers();
+    testAI();
 }
 
