@@ -176,6 +176,8 @@ void testBot() {
 
 void testBoss() {
     Boss boss("Саурон", 100, "тъмни сили", 1.2, 80, 50, 100);
+    // !!! Player* pp = &boss;
+    // !!! pp->print();
     boss.print();
     std::cout << boss.getName() << std::endl;
     std::cout << &boss << std::endl;
