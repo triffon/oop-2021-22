@@ -16,6 +16,7 @@ public:
     void setDifficulty(unsigned _difficulty) { difficulty = _difficulty; }
 
     void print(std::ostream& os = std::cout) const;
+    void printDirect(std::ostream& os = std::cout) const;
 };
 
 #endif

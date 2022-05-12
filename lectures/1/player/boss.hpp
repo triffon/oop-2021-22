@@ -13,6 +13,7 @@ public:
     unsigned getDamage() const { return damage; }
 
     void print(std::ostream& os = std::cout) const;
+    void printDirect(std::ostream& os = std::cout) const;
 };
 
 #endif

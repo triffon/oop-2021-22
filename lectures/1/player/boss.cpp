@@ -9,8 +9,13 @@ Boss::Boss(char const* _name, unsigned _score,
           damage(_damage) {}
 
 void Boss::print(std::ostream& os) const {
-    Bot::print(os);
-    std::cout << " и е бос, който е ";
-    Hero::print(os);
+  Player::print(os);
+  printDirect(os);
+}
+
+void Boss::printDirect(std::ostream& os) const {
+    Bot::printDirect(os);
+    std::cout << " и е бос, който";
+    Hero::printDirect(os);
     std::cout << " и нанася щети " << getDamage() << std::endl;
 }

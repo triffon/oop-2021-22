@@ -9,6 +9,10 @@ Bot::Bot(char const* _name, unsigned _score,
 
 void Bot::print(std::ostream& os) const {
     Player::print(os);
+    printDirect(os);
+}
+
+void Bot::printDirect(std::ostream& os) const {
     os << " и е бот с трудност " << getDifficulty();
     os << ", използващ ";
     AI::print(os);

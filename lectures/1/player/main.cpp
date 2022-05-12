@@ -184,6 +184,9 @@ void testBoss() {
     std::cout << &(Player&)(Hero&)boss << ' ' << &(Player&)(Bot&)boss << std::endl;
     std::cout << &(Player&)boss << std::endl;
     std::cout << &(Hero&)boss << ' ' << &(Bot&)boss << std::endl;
+
+    Bot& bot = boss;
+    Boss& boss2 = (Boss&)bot;
 }
 
 int main() {
