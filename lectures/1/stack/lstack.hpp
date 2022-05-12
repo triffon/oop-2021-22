@@ -4,6 +4,8 @@
 #include <cstddef>
 #include <iostream>
 
+#include "abstract_stack.hpp"
+
 template <typename T>
 struct StackElement {
     T data;
@@ -11,7 +13,7 @@ struct StackElement {
 };
 
 template <typename T>
-class LinkedStack {
+class LinkedStack : public AbstractStack<T> {
 private:
     // указател към двойната кутия, която е връх на стека
     StackElement<T>* top;

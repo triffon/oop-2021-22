@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cassert>
-//#include "stack.hpp"
+#include "stack.hpp"
 #include "rstack.hpp"
 #include "lstack.hpp"
+#include "abstract_stack.hpp"
 
 //using Stack = ResizingStack;
-using Stack = LinkedStack<int>;
+//using Stack = LinkedStack<int>;
 
 void convertBase() {
     unsigned n;
@@ -179,10 +180,30 @@ void testDestroyStack() {
     std::cin >> x;
 }
 
+void testAbstractStack() {
+    AbstractStack<int>* stacks[] = {
+        new Stack,
+        new ResizingStack,
+        new LinkedStack<int>
+    };
+    size_t count = sizeof(stacks) / sizeof(stacks[0]);
+    for(int i = 0; i < count; i++)
+        for(int x = 1; x <= 10; x++)
+            stacks[i]->push(x);
+    
+    for(int i = 0; i < count; i++)
+        while (!stacks[i]->empty())
+            std::cout << stacks[i]->pop() << std::endl;
+
+    for(int i = 0; i < count; i++)
+        delete stacks[i];
+}
+
 int main(int, char**) {
     //convertBase();
     //testExpression();
     //autoTestParentheses();
     //testCopyStack();
-     testDestroyStack();
+    //testDestroyStack();
+    testAbstractStack();
 }

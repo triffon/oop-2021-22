@@ -39,14 +39,14 @@ bool ResizingStack::empty() const {
 }
 
 // включване на елемент
-void ResizingStack::push(int x) {
+void ResizingStack::push(int const& x) {
     if (full())
         resize();
     stack[++top] = x;
 }
 
 // намиране на последния включен елемент
-int ResizingStack::peek() const {
+int const& ResizingStack::peek() const {
     assert(!empty());
     return stack[top];
 }

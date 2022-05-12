@@ -12,13 +12,13 @@ bool Stack::empty() const {
 }
 
 // включване на елемент
-void Stack::push(int x) {
+void Stack::push(int const& x) {
     assert(!full());
     stack[++top] = x;
 }
 
 // намиране на последния включен елемент
-int Stack::peek() const {
+int const& Stack::peek() const {
     assert(!empty());
     return stack[top];
 }
