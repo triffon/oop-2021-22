@@ -35,11 +35,6 @@ void Player::print(std::ostream& os) const {
        << "' има " << getScore() << " точки";
 }
 
-void Player::println(std::ostream& os) const {
-    print(os);
-    os << std::endl;
-}
-
 void Player::setName(char const* _name) {
     // за домашно: strncpy
     delete[] name;

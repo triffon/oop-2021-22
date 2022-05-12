@@ -7,7 +7,8 @@ SuperHero::SuperHero(char const* _name,
             char const* _power,
             bool _isActivated,
             unsigned _levelBoost)
-    : Hero(_name, _score, _level),
+    : Player(_name, _score),
+      Hero(_name, _score, _level),
       isActivated(_isActivated),
       levelBoost(_levelBoost),
       power(nullptr) {

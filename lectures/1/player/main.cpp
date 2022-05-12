@@ -149,6 +149,12 @@ void testSuperHero() {
     std::cout << "Изтрихме hero!\n";
 }
 
+template <typename T>
+void printAll(T players[], size_t count) {
+    for(int i = 0; i < count; i++)
+        players[i].println();
+}
+
 void testPlayers() {
     Player* players[] = { new Player("Катнис Евърдийн", 1),
                           new Hero("Гандалф", 45, 10),
@@ -191,6 +197,25 @@ void testBoss() {
     Boss& boss2 = (Boss&)bot;
 }
 
+void testPrintables() {
+    Printable* printables[] = { 
+        new Player("Катнис Евърдийн", 1),
+        new Hero("Гандалф", 45, 10),
+        new SuperHero("Супермен", 100, 5, "летене", false, 10),
+        new SuperHero("Dr. Strange", 20, 8, "отваряне на портали", true, 9),
+        new Boss("Саурон", 100, "тъмни сили", 1.2, 80, 50, 100),
+        new AI("невронна мрежа", 0.2),
+        new Bot("Deep Thought", 20, "minimax", 3.8, 5),
+        new Bot("HAL 9000", 40, "alpha-beta", 1.9, 15)
+    };
+    size_t count = sizeof(printables) / sizeof(printables[0]);
+    for(int i = 0; i < count; i++)
+        printables[i]->println();
+    for(int i = 0; i < count; i++)
+        delete printables[i];
+}
+
+
 int main() {
     // testCopyPlayer();
     // testArrayPlayer();
@@ -199,6 +224,7 @@ int main() {
     // testPlayers();
     // testAI();
     // testBot();
-    testBoss();
+    // testBoss();
+    testPrintables();
 }
 
