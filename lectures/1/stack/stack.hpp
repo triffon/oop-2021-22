@@ -1,11 +1,13 @@
 #ifndef __STACK_HPP
 #define __STACK_HPP
+#include "abstract_stack.hpp"
 
-const int MAXSTACK = 100;
-const int EMPTY_STACK = -1;
-
-class Stack {
+class Stack : public AbstractStack<int> {
 private:
+    static const int MAXSTACK = 100;
+    static const int EMPTY_STACK = -1;
+
+
     // стекът
     int stack[MAXSTACK];
 
@@ -22,10 +24,10 @@ public:
     bool empty() const;
 
     // включване на елемент
-    void push(int x);
+    void push(int const& x);
 
     // намиране на последния включен елемент
-    int peek() const;
+    int const& peek() const;
 
     // изключване на последния включен елемент
     int pop();

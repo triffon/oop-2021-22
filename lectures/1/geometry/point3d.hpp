@@ -2,21 +2,23 @@
 #define __POINT3D_HPP
 #include "point2d.hpp"
 
+using DPoint2D = Point2D<double>;
+
 class Point3D {
 private:
 //    double x, y, z;
-    Point2D p;
+    DPoint2D p;
     double z;
 public:
 
     // конструктори
     Point3D();
-    Point3D(Point2D const& _p, double _z);
+    Point3D(DPoint2D const& _p, double _z);
     Point3D(double _x, double _y, double _z);
 //    Point3D(Point3D const&);
 
     // селектори
-    Point2D const& getP() const { return p; }
+    DPoint2D const& getP() const { return p; }
     double  getX() const { return p.getX(); }
     double  getY() const { return p.getY(); }
     double  getZ() const { return z; }
@@ -27,7 +29,7 @@ public:
     void read();
 
     // мутатори
-    void setP(Point2D const& _p) { p = _p; }
+    void setP(DPoint2D const& _p) { p = _p; }
     void setX(double _x) { p.setX(_x); }
     void setY(double _y) { p.setY(_y); }
     void setZ(double _z) { z = _z; }

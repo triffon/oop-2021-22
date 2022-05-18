@@ -3,14 +3,14 @@
 
 Point3D::Point3D() {
     std::clog << "Point3D::Point3D()\n";
-    setP(Point2D());
+    setP(DPoint2D());
     setZ(0);
 }
 
 Point3D::Point3D(double _x, double _y, double _z) : p(_x, _y) {
     std::clog << "Point3D::Point3D(...)\n";
     getP().printnl();
- //   setP(Point2D(_x, _y));
+ //   setP(DPoint2D(_x, _y));
     setZ(_z);
 }
 
@@ -21,7 +21,7 @@ Point3D::Point3D(Point3D const& other) : p(other.p), z(other.z) {
 }
 */
 
-Point3D::Point3D(Point2D const& _p, double _z) {
+Point3D::Point3D(DPoint2D const& _p, double _z) {
     setP(_p);
     setZ(_z);
 }
@@ -46,7 +46,7 @@ void Point3D::read() {
 void Point3D::translate(Point3D const& p3d) {
     p.translate(p3d.getP());
     /*
-    Point2D tmp = getP();
+    DPoint2D tmp = getP();
     tmp.translate(p3D.getP());
     setP(tmp);
     */
@@ -54,10 +54,10 @@ void Point3D::translate(Point3D const& p3d) {
 }
 
 double Point3D::distanceToOrigin() const {
-    return Point2D(getP().distanceToOrigin(), getZ()).distanceToOrigin();
+    return DPoint2D(getP().distanceToOrigin(), getZ()).distanceToOrigin();
     /*
     double dp = getP().distanceToOrigin();
-    Point2D q(dp, getZ());
+    DPoint2D q(dp, getZ());
     return q.distanceToOrigin();
     */
     // return sqrt(getX() * getX() + getY() * getY() + getZ() * getZ());

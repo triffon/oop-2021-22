@@ -3,7 +3,7 @@
 #include "point3d.hpp"
 
 void testGeometry() {
-    Point2D p, q(1, 3);
+    DPoint2D p, q(1, 3);
     p.printnl();
     q.printnl();
     p.read();
@@ -26,6 +26,6 @@ void testGeometry3D() {
 }
 
 int main(int, char**) {
-    // testGeometry();
+    //testGeometry();
     testGeometry3D();
 }

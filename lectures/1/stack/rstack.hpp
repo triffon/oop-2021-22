@@ -1,12 +1,14 @@
 #ifndef __RSTACK_HPP
 #define __RSTACK_HPP
 #include <cstddef>
+#include "abstract_stack.hpp"
 
-const int INITSTACK = 10;
-const int EMPTY_STACK = -1;
 
-class ResizingStack {
+class ResizingStack : public AbstractStack<int> {
 private:
+    static const int EMPTY_STACK = -1;
+    static const int INITSTACK = 10;
+
     // указател към масива на стека
     int* stack;
 
@@ -41,10 +43,10 @@ public:
     bool empty() const;
 
     // включване на елемент
-    void push(int x);
+    void push(int const& x);
 
     // намиране на последния включен елемент
-    int peek() const;
+    int const& peek() const;
 
     // изключване на последния включен елемент
     int pop();

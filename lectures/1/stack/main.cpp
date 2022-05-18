@@ -1,11 +1,12 @@
 #include <iostream>
 #include <cassert>
-//#include "stack.hpp"
+#include "stack.hpp"
 #include "rstack.hpp"
 #include "lstack.hpp"
+#include "abstract_stack.hpp"
 
-//typedef ResizingStack Stack;
-typedef LinkedStack Stack;
+//using Stack = ResizingStack;
+//using Stack = LinkedStack<int>;
 
 void convertBase() {
     unsigned n;
@@ -76,7 +77,8 @@ int calculate(int left, char op, int right) {
 }
 
 int calculateExpression(char const* expr) {
-    Stack results, ops;
+    LinkedStack<int> results;
+    LinkedStack<char> ops;
     while (*expr) {
         if (isdigit(*expr))
             // <цифра>
@@ -169,7 +171,7 @@ void testCopyStack() {
 void testDestroyStack() {
     for(int i = 0; i < 1E8; i++) {
         // ResizingStack s;
-        LinkedStack s;
+        LinkedStack<int> s;
         for(int j = 1; j <= 10; j++)
             s.push(j);
     }
@@ -178,10 +180,30 @@ void testDestroyStack() {
     std::cin >> x;
 }
 
+void testAbstractStack() {
+    AbstractStack<int>* stacks[] = {
+        new Stack,
+        new ResizingStack,
+        new LinkedStack<int>
+    };
+    size_t count = sizeof(stacks) / sizeof(stacks[0]);
+    for(int i = 0; i < count; i++)
+        for(int x = 1; x <= 10; x++)
+            stacks[i]->push(x);
+    
+    for(int i = 0; i < count; i++)
+        while (!stacks[i]->empty())
+            std::cout << stacks[i]->pop() << std::endl;
+
+    for(int i = 0; i < count; i++)
+        delete stacks[i];
+}
+
 int main(int, char**) {
     //convertBase();
     //testExpression();
     //autoTestParentheses();
-    testCopyStack();
-    // testDestroyStack();
+    //testCopyStack();
+    //testDestroyStack();
+    testAbstractStack();
 }
