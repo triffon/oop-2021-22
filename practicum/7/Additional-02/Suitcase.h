@@ -34,6 +34,10 @@ public:
 		return *this;
 	}
 
+	~Suitcase() {
+		clear();
+	}
+
 	void addClothing(ClothingItem* cloth) {
 		if (size >= capacity)
 			return;
