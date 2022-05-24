@@ -6,6 +6,8 @@ class Shape
 public:
     virtual double getPerimeter() = 0;
     virtual double getArea() = 0;
+
+    virtual ~Shape() = default;
 };
 
 class Triangle : public Shape

@@ -17,6 +17,8 @@ public:
     }
 
     virtual void makeSound() const = 0;
+
+    virtual ~Animal() = default;
 };
 
 class Dog : public Animal
