@@ -9,7 +9,7 @@ using mathop  = double (*)(double, double);
 
 double accumulate(mathop op, double nv,
                   double a, double b,
-                  mathfun f, nextfun next) {
+                  auto f, nextfun next) {
     double result = nv;
     for(int i = a; i <= b; i = next(i))
         result = op(result, f(i));
@@ -25,23 +25,28 @@ unsigned fact(unsigned n) {
 }
 
 // !!! template <double x>
+/*
 double gx;
 double constx(double i) { return gx; }
+*/
 
 double power(double x, long n) {
-    gx = x;
+    // !!! gx = x;
     if (n < 0)
         return 1 / power(x, -n);
-    return accumulate(multiply, 1, 1, n, constx, plus1);
+    return accumulate(multiply, 1, 1, n, [x](double i) { return x; }, plus1);
 }
 
+/*
 double expterm(double i) {
     return power(gx, i) / fact(i);
 }
+*/
 
 double myexp(double x, unsigned n) {
-    gx = x;
-    return accumulate(add, 0, 0, n, expterm, plus1);
+    // !!! gx = x;
+    return accumulate(add, 0, 0, n,
+                      [x](double i){ return power(x, i) / fact(i); }, plus1);
 }
 
 /*
