@@ -19,6 +19,8 @@ public:
     {
         return new FMIPerson(this->name, this->age);
     }
+
+    virtual ~FMIPerson() = default;
 };
 
 class Lecturer : public FMIPerson

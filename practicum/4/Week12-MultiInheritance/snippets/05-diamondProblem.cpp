@@ -12,7 +12,7 @@ public:
         std::cout << "Base()::Base()" << std::endl;
     }
 
-    ~Base()
+    virtual ~Base()
     {
         std::cout << "Base()::~Base()" << std::endl;
     }
@@ -29,7 +29,7 @@ public:
         std::cout << "Derived1()::Derived1()" << std::endl;
     }
 
-    ~Derived1()
+    virtual ~Derived1()
     {
         std::cout << "Derived1()::~Derived1()" << std::endl;
     }
@@ -47,7 +47,7 @@ public:
         std::cout << "Derived2()::Derived2()" << std::endl;
     }
 
-    ~Derived2()
+    virtual ~Derived2()
     {
         std::cout << "Derived2()::~Derived2()" << std::endl;
     }
@@ -61,7 +61,7 @@ public:
         std::cout << "ThirdLevel()::ThirdLevel()" << std::endl;
     }
 
-    ~ThirdLevel()
+    virtual ~ThirdLevel()
     {
         std::cout << "ThirdLevel()::~ThirdLevel()" << std::endl;
     }

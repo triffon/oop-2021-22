@@ -14,6 +14,8 @@ public:
     {
         std::cout << "My name is " << this->name << " and I am " << this->age << " years old." << std::endl;
     }
+
+    virtual ~FMIPerson() = default;
 };
 
 class Lecturer : public FMIPerson

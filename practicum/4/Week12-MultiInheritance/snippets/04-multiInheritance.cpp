@@ -8,7 +8,7 @@ public:
         std::cout << "I can fly" << std::endl;
     }
 
-    ~Flyable()
+    virtual ~Flyable()
     {
         std::cout << "Bye, bye, flyable" << std::endl;
     }
@@ -22,7 +22,7 @@ public:
         std::cout << "I am mammal" << std::endl;
     }
 
-    ~Mammal()
+    virtual ~Mammal()
     {
         std::cout << "Bye, bye, mammal" << std::endl;
     }
