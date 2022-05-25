@@ -16,7 +16,7 @@ SuperHero::SuperHero(char const* _name,
 }
 
 SuperHero::SuperHero(SuperHero const& other)
-  : Hero(other),
+  : Player(other), Hero(other),
     isActivated(other.isActivated),
     levelBoost(other.levelBoost),
     power(nullptr) {
