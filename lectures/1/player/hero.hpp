@@ -10,6 +10,7 @@ public:
     Hero(const char* _name = "<анонимен>",
            unsigned _score = 0,
            unsigned _level = 1);
+    Hero* clone() const { return new Hero(*this); }
 
     // селектор
     virtual unsigned getLevel() const { return level; }

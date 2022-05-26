@@ -15,6 +15,7 @@ public:
     AI(AI const& other);
     AI& operator=(AI const& other);
     ~AI();
+    AI* clone() const { return new AI(*this); }
 
     char const* getAlgorithm() const { return algorithm; }
     double getThreshold() const { return threshold; }

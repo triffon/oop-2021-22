@@ -22,6 +22,7 @@ public:
     SuperHero(SuperHero const&);
     SuperHero& operator=(SuperHero const&);
     ~SuperHero();
+    SuperHero* clone() const { return new SuperHero(*this); } 
 
     void activatePower();
     void deactivatePower();

@@ -197,6 +197,14 @@ void testBoss() {
     Boss& boss2 = (Boss&)bot;
 }
 
+/*
+ *  След извикване на функцията, указателят се притежава от printables
+ */
+void replacePrintable(Printable* printables[], Printable const* printable, unsigned index) {
+    delete printables[index];
+    printables[index] = printable->clone();
+}
+
 void testPrintables() {
     Printable* printables[] = { 
         new Player("Катнис Евърдийн", 1),
@@ -211,6 +219,16 @@ void testPrintables() {
     size_t count = sizeof(printables) / sizeof(printables[0]);
     for(int i = 0; i < count; i++)
         printables[i]->println();
+
+    SuperHero* catwoman = new SuperHero("Жената котка", 15, 3, "скачане");
+
+    replacePrintable(printables, catwoman, 2);
+
+    delete catwoman;
+
+    for(int i = 0; i < count; i++)
+        printables[i]->println();
+
     for(int i = 0; i < count; i++)
         delete printables[i];
 }

@@ -22,7 +22,8 @@ public:
     Player(const char* _name = "<анонимен>", unsigned _score = 0);
     Player(Player const&);
     Player& operator=(Player const&);
-    virtual ~Player();
+    ~Player();
+    Printable* clone() const { return new Player(*this); } 
 
     char const* getName() const { return name; }
     unsigned getScore() const { return score; }
