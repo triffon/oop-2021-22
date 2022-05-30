@@ -38,7 +38,7 @@ String::~String()
 }
 
 String::String(const String& other):
-    m_data{new char[other.m_size + 1]},
+    m_data{other.m_size ? new char[other.m_size + 1] : nullptr},
     m_size{other.m_size}
 {
     strcpy(m_data, other.m_data);
