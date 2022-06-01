@@ -5,11 +5,31 @@ using TestStack = LinkedStack<int>;
 TEST_CASE("LinkedStack: след създаване на стек той е празен") {
     TestStack s;
     CHECK(s.empty());
+    /*
+    try {
+        int* p = new int[473264872364783268];
+    } catch (std::bad_alloc e) {
+        std::cerr << "Грешка при заделяне на памет! " << e.what() << std::endl;
+    }
+    */
+    /*
+    int *p = new (std::nothrow) int[473264872364783268];
+    if (p == nullptr)
+        std::cerr << "Грешка при заделяне на памет!\n";
+    */
 }
 
 TEST_CASE("LinkedStack: стекът не е празен след добавяне") {
     TestStack s;
-    s.push(10);
+    try {
+        // TestStack s2;
+        // s2.push(15);
+        s.push(10);
+    } catch (char const* message) {
+        std::cerr << "За съжаление push хвърли изключение: " << message << std::endl;
+        // throw;
+        // throw "вече обработих грешката, спокойно";
+    }
     CHECK(!s.empty());
 }
 
@@ -33,10 +53,15 @@ TEST_CASE("LinkedStack: peek връща последно включения ел
     CHECK_EQ( s.peek(), 10);
 }
 
-TEST_CASE("LinkedStack: опит за поглеждане в празен стек") {
+TEST_CASE("LinkedStack: неуспех при опит за поглеждане в празен стек") {
     TestStack s;
     int x;
     CHECK( ! s.peek(x) );
+}
+
+TEST_CASE("LinkedStack: изключение при опит за поглеждане в празен стек") {
+    TestStack s;
+    CHECK_THROWS( s.peek() );
 }
 
 TEST_CASE("LinkedStack: безопасният peek връща последно включения елемент") {
@@ -66,4 +91,11 @@ TEST_CASE("LinkedStack: конструкторът за копиране не с
         CHECK_EQ(s1.pop(), i);
     }
     CHECK(s1.empty());
+}
+
+TEST_CASE("LinkedStack: pop връща грешка при опит за изключване от празен стек") {
+    TestStack s;
+    bool success = true;
+    int x = s.pop(success);
+    CHECK_FALSE( success );
 }

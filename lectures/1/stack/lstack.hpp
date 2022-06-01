@@ -52,6 +52,9 @@ public:
 
     // изключване на последния включен елемент
     T pop();
+
+    // изключване на последния включен елемент с код за грешка
+    T pop(bool& success);
 };
 
 
@@ -111,6 +114,7 @@ bool LinkedStack<T>::empty() const {
 template <typename T>
 void LinkedStack<T>::push(T const& x) {
     top = new StackElement<T>{x, top};
+    // throw "Фалшива тревога!";
     /*
     newtop->data = x;
     newtop->next = top;
@@ -121,7 +125,9 @@ void LinkedStack<T>::push(T const& x) {
 // намиране на последния включен елемент
 template <typename T>
 T const& LinkedStack<T>::peek() const {
-    assert(!empty());
+    // assert(!empty());
+    if (empty())
+        throw "Опит за поглеждане в празен стек!";
     /*
     if (empty())
         return T();
@@ -131,9 +137,10 @@ T const& LinkedStack<T>::peek() const {
 
 template <typename T>
 bool LinkedStack<T>::peek(T& result) const {
-    if (!empty())
-        result = top->data;
-    return !empty();
+    if (empty())
+        return false;
+    result = top->data;
+    return true;
 }
 
 // изключване на последния включен елемент
@@ -145,6 +152,16 @@ T LinkedStack<T>::pop() {
     delete top;
     top = newtop;
     return x;
+}
+
+template <typename T>
+T LinkedStack<T>::pop(bool& success) {
+    if (empty()) {
+        success = false;
+        return T();
+    }
+    success = true;
+    return pop();
 }
 
 #endif

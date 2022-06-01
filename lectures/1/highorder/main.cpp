@@ -45,6 +45,7 @@ double expterm(double i) {
 
 double myexp(double x, unsigned n) {
     // !!! gx = x;
+    // throw "Анализът не е за мен!";
     return accumulate(add, 0, 0, n,
                       [x](double i){ return power(x, i) / fact(i); }, plus1);
 }
