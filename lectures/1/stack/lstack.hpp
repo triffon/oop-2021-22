@@ -46,6 +46,10 @@ public:
     // намиране на последния включен елемент
     T const& peek() const;
 
+    // безопасно намиране на последния включен елемент с индикация за успех
+    bool peek(T&) const;
+
+
     // изключване на последния включен елемент
     T pop();
 };
@@ -118,7 +122,18 @@ void LinkedStack<T>::push(T const& x) {
 template <typename T>
 T const& LinkedStack<T>::peek() const {
     assert(!empty());
-    return top->data;
+    /*
+    if (empty())
+        return T();
+    */
+   return top->data;
+}
+
+template <typename T>
+bool LinkedStack<T>::peek(T& result) const {
+    if (!empty())
+        result = top->data;
+    return !empty();
 }
 
 // изключване на последния включен елемент

@@ -4,7 +4,7 @@
 // създаване на празен стек
 Stack::Stack() {
     top = EMPTY_STACK;
-}
+}   
 
 // проверка за празнота
 bool Stack::empty() const {
@@ -20,6 +20,7 @@ void Stack::push(int const& x) {
 // намиране на последния включен елемент
 int const& Stack::peek() const {
     assert(!empty());
+    assert(top >= 0 && top < MAXSTACK);
     return stack[top];
 }
 

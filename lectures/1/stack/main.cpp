@@ -5,6 +5,11 @@
 #include "lstack.hpp"
 #include "abstract_stack.hpp"
 
+#define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
+#include "doctest.h"
+
+#include "tests/lstack_tests.hpp"
+
 //using Stack = ResizingStack;
 //using Stack = LinkedStack<int>;
 
@@ -199,6 +204,7 @@ void testAbstractStack() {
         delete stacks[i];
 }
 
+/*
 int main(int, char**) {
     //convertBase();
     //testExpression();
@@ -207,3 +213,4 @@ int main(int, char**) {
     //testDestroyStack();
     testAbstractStack();
 }
+*/
