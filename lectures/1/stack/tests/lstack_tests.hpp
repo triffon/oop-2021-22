@@ -99,3 +99,62 @@ TEST_CASE("LinkedStack: pop връща грешка при опит за изк�
     int x = s.pop(success);
     CHECK_FALSE( success );
 }
+
+TestStack reverse(TestStack s) {
+    TestStack result;
+    // !!! bool even = s.peek() % 2 == 0;
+    while (!s.empty())
+        result.push(s.pop());
+    // !!! if (even)
+    // !!!    return s;
+    return result;
+}
+
+TestStack createStack(unsigned n) {
+    TestStack result;
+    for(int i = 1; i <= n; i++)
+        result.push(i);
+    return result;
+}
+
+TestStack doubleTop(TestStack s) {
+    s.push(s.pop() * 2);
+    return s;
+}
+
+TEST_CASE("LinkedStack: копиране при reverse") {
+    std::clog << "LinkedStack: копиране при reverse\n";
+    TestStack s;
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    TestStack s2 = reverse(s);
+    CHECK_EQ(s2.pop(), 1);
+    CHECK_EQ(s2.pop(), 2);
+    CHECK_EQ(s2.pop(), 3);
+    CHECK(s2.empty());
+}
+
+TEST_CASE("LinkedStack: копиране при doubleTop") {
+    std::clog << "LinkedStack: копиране при doubleTop\n";
+    // TestStack temp = createStack(10);
+    TestStack s2 = doubleTop(createStack(10));
+    //s2.push(1);
+    //s2.pop();
+    // s2.steal(doubleTop(createStack(10)));
+}
+
+TEST_CASE("LinkedStack: присвояване при doubleTop") {
+    std::clog << "LinkedStack: присвояване при doubleTop\n";
+    // TestStack temp = createStack(10);
+    TestStack s2 = createStack(10);
+    s2 = doubleTop(createStack(10));
+}
+
+TEST_CASE("LinkedStack: std::move") {
+    std::clog << "LinkedStack: std::move\n";
+    TestStack temp = createStack(10);
+//    TestStack s2 = doubleTop((TestStack&&)temp);
+    TestStack s2 = doubleTop(std::move(temp));
+    CHECK(temp.empty());
+}

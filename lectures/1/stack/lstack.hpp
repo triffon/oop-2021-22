@@ -34,6 +34,12 @@ public:
     // операция за присвояване
     LinkedStack& operator=(LinkedStack const&);
 
+    // конструктор за преместване
+    LinkedStack(LinkedStack&&);
+
+    // операция за преместване
+    LinkedStack& operator=(LinkedStack&&);
+
     // деструктор
     ~LinkedStack();
 
@@ -55,6 +61,14 @@ public:
 
     // изключване на последния включен елемент с код за грешка
     T pop(bool& success);
+
+    void steal(LinkedStack&& other) {
+        if (top != nullptr)
+            //erase();
+            throw "Кражба от непразен обект!\n";
+        top = other.top;
+        other.top = nullptr;
+    }
 };
 
 
@@ -65,6 +79,7 @@ LinkedStack<T>::LinkedStack() : top(nullptr) {}
 // копиране на стек
 template <typename T>
 LinkedStack<T>::LinkedStack(LinkedStack const& other) : top(nullptr) {
+    std::clog << "Копиране на LinkedStack" << std::endl;
     copyStack(other);
 }
 
@@ -96,6 +111,7 @@ void LinkedStack<T>::copyStack(LinkedStack const& other) {
 
 template <typename T>
 LinkedStack<T>& LinkedStack<T>::operator=(LinkedStack const& other) {
+    std::clog << "Присвояване на LinkedStack" << std::endl;
     if (this != &other) {
         erase();
         copyStack(other);
@@ -162,6 +178,23 @@ T LinkedStack<T>::pop(bool& success) {
     }
     success = true;
     return pop();
+}
+
+template <typename T>
+LinkedStack<T>::LinkedStack(LinkedStack&& other) : top(other.top) {
+    std::clog << "Конструктор за преместване на LinkedStack" << std::endl;
+    other.top = nullptr;
+}
+
+template <typename T>
+LinkedStack<T>& LinkedStack<T>::operator=(LinkedStack&& other) {
+    std::cout << "Операция за преместване на LinkedStack" << std::endl;
+    if (this != &other) {
+        erase();
+        top = other.top;
+        other.top = nullptr;
+    }
+    return *this;
 }
 
 #endif
