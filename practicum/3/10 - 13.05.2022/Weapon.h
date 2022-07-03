@@ -26,6 +26,7 @@ class Weapon {
     void setDamage(double damage);
 
     virtual void attack(const char *target) = 0;
+    virtual Weapon *clone() const = 0;
 
     Weapon &operator=(Weapon const &weapon);
 };

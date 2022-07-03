@@ -11,4 +11,5 @@ class Axe : public Melee {
     virtual void attack(const char *target);
 
     Axe &operator=(const Axe &other);
+    virtual Weapon *clone() const;
 };
