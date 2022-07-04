@@ -25,4 +25,5 @@ TEST_CASE("test division")
     REQUIRE(calculator.divide(5,2) == doctest::Approx(2.5));
     REQUIRE_THROWS(calculator.divide(10, 0));
     REQUIRE_THROWS_AS(calculator.divide(15, 0), std::invalid_argument);
+    REQUIRE_NOTHROW(calculator.divide(5,2));
 }

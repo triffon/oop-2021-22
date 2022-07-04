@@ -72,7 +72,7 @@ TEST_CASE("Test copy constructor")
     REQUIRE(copy.getCapacity() == 8);
 }
 
-TEST_CASE("Test copy constructor")
+TEST_CASE("Test operator =")
 {
     List<int> intList;
     intList.add(5);
