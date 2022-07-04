@@ -1,4 +1,14 @@
 #pragma once
+#include <stdexcept>
+
+class OutOfRange : public std::exception {
+  public:
+    virtual const char *what() const {
+        return "The index is invalid!";
+    }
+    virtual ~OutOfRange() = default;
+};
+
 template <typename T>
 class Array {
   protected:
@@ -112,5 +122,13 @@ class Array {
         }
 
         return ans;
+    }
+    T &operator[](int index) {
+        if (index < 0 || index >= this->size) {
+            // throw std::out_of_range("The index is invalid!");
+            throw OutOfRange();
+        }
+
+        return this->arr[index];
     }
 };

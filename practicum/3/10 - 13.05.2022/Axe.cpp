@@ -15,3 +15,7 @@ Axe::~Axe() {}
 void Axe::attack(const char *target) {
     std::cout << "Axe attacks target " << target << std::endl;
 }
+
+Weapon *Axe::clone() const {
+    return new Axe(*this);
+}

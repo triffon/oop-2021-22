@@ -28,4 +28,13 @@ int main() {
     asd.map(add1);
     Array<int> asd1 = asd.filter(even);
     asd1.map(print);
+    try {
+        asd[100];
+    } catch (OutOfRange e) {
+        std::cout << "OutOfRange\n";
+        std::cout << e.what() << std::endl;
+    } catch (std::out_of_range e) {
+        std::cout << "std::out_of_range\n";
+        std::cout << e.what() << std::endl;
+    }
 }

@@ -14,4 +14,6 @@ class Japanka : public Melee, public Ranged {
     virtual void attack(const char *target);
 
     Japanka &operator=(const Japanka &other);
+
+    virtual Weapon *clone() const;
 };

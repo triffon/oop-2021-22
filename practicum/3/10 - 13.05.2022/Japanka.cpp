@@ -18,3 +18,7 @@ Japanka::~Japanka() {}
 void Japanka::attack(const char *target) {
     std::cout << "Japanka " << getName() << "attacks target " << target << std::endl;
 }
+
+Weapon *Japanka::clone() const {
+    return new Japanka(*this);
+}

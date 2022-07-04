@@ -1,5 +1,4 @@
 #define DOCTEST_CONFIG_IMPLEMENT_WITH_MAIN
-#define EPS 1e-3
 #include "doctest.h"
 
 #include "Vector3D.h"
@@ -165,7 +164,7 @@ TEST_CASE("TEST VECTOR PRODUCT") {
     Vector3D v1(1, 2, 3);
     Vector3D v2(4, 5, 7);
     Vector3D prod = productVector(v1, v2);
-    
+
     CHECK_LT(abs(prod.x + 1), EPS);
     CHECK_LT(abs(prod.y - 5), EPS);
     CHECK_LT(abs(prod.z + 3), EPS);
@@ -175,7 +174,7 @@ TEST_CASE("TEST VECTOR PRODUCT 1") {
     Vector3D v1(1, 0, 0);
     Vector3D v2(0, 1, 0);
     Vector3D prod = productVector(v1, v2);
-    
+
     CHECK_LT(abs(prod.x), EPS);
     CHECK_LT(abs(prod.y), EPS);
     CHECK_LT(abs(prod.z - 1), EPS);
@@ -185,7 +184,7 @@ TEST_CASE("TEST VECTOR PRODUCT 2") {
     Vector3D v1(1, 0, 0);
     Vector3D v2(0, 1, 0);
     Vector3D prod = productVector(v2, v1);
-    
+
     CHECK_LT(abs(prod.x), EPS);
     CHECK_LT(abs(prod.y), EPS);
     CHECK_LT(abs(prod.z + 1), EPS);
@@ -199,4 +198,11 @@ TEST_CASE("TEST VECTOR PRODUCT 3") {
     CHECK_LT(abs(prod.x + 30), EPS);
     CHECK_LT(abs(prod.y + 62), EPS);
     CHECK_LT(abs(prod.z - 88), EPS);
+}
+
+////////////////////////////////////////////////////////
+
+TEST_CASE("DIVISION BY 0") {
+    Vector3D v(1, 2, 3);
+    CHECK_THROWS_AS(div(v, 0), std::invalid_argument);
 }

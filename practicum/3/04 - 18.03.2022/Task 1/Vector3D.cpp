@@ -1,5 +1,6 @@
 #include "Vector3D.h"
 #include <cmath>
+#include <stdexcept>
 
 Vector3D::Vector3D() {
     this->x = 0;
@@ -26,11 +27,11 @@ double Vector3D::getLenght() const {
 
 Vector3D sum(const Vector3D &v1, const Vector3D &v2) {
     Vector3D result;
-    
+
     result.x = v1.x + v2.x;
     result.y = v1.y + v2.y;
     result.z = v1.z + v2.z;
-    
+
     return result;
 }
 
@@ -44,7 +45,7 @@ Vector3D diff(const Vector3D &v1, const Vector3D &v2) {
     result.x = v1.x - v2.x;
     result.y = v1.y - v2.y;
     result.z = v1.z - v2.z;
-    
+
     return result;
 }
 
@@ -54,10 +55,17 @@ double productScalar(const Vector3D &v1, const Vector3D &v2) {
 
 Vector3D productVector(const Vector3D &v1, const Vector3D &v2) {
     Vector3D product;
-    
+
     product.x = (v1.y * v2.z - v1.z * v2.y);
     product.y = (v1.z * v2.x - v1.x * v2.z);
     product.z = (v1.x * v2.y - v1.y * v2.x);
-    
+
     return product;
+}
+
+Vector3D div(const Vector3D &v, double divisor) {
+    if (abs(divisor) < EPS) {
+        throw std::invalid_argument("division by 0");
+    }
+    return product(v, 1 / divisor);
 }
